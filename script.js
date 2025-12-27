@@ -1,12 +1,10 @@
 const ravenEyes = document.querySelectorAll('.raven-eye');
 
 function blinkRaven() {
-    // Blink both eyes
     ravenEyes.forEach(eye => {
         eye.style.opacity = '0';
     });
     
-    // Open eyes after 150ms
     setTimeout(() => {
         ravenEyes.forEach(eye => {
             eye.style.opacity = '1';
@@ -14,23 +12,17 @@ function blinkRaven() {
     }, 150);
 }
 
-// Blink at random intervals (5-10 seconds)
 function scheduleNextBlink() {
-    const delay = Math.random() * 5000 + 5000; // 5-10 seconds
+    const delay = Math.random() * 5000 + 5000;
     setTimeout(() => {
         blinkRaven();
         scheduleNextBlink();
     }, delay);
 }
 
-// Start blinking after 2 seconds
 setTimeout(() => {
     scheduleNextBlink();
 }, 2000);
-
-// ================================
-// SMOOTH SCROLL
-// ================================
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -45,7 +37,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Also make scroll indicator clickable
 const scrollBtn = document.getElementById('scrollBtn');
 if (scrollBtn) {
     scrollBtn.addEventListener('click', () => {
@@ -55,8 +46,4 @@ if (scrollBtn) {
     });
 }
 
-// ================================
-// CONSOLE MESSAGES
-// ================================
-
-console.log('🌲 From Forest to Function');
+console.log('🦅 The raven watches...');
