@@ -11,10 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ================================
-   HERO SECTION
-   ================================ */
-
 #hero {
     position: relative;
     height: 100vh;
@@ -26,7 +22,6 @@ body {
     overflow: hidden;
 }
 
-/* Paper Texture */
 .paper-texture {
     position: absolute;
     top: 0;
@@ -52,88 +47,92 @@ body {
     opacity: 0.5;
 }
 
-/* ================================
-   COFFEE STAINS - MORE VISIBLE!
-   ================================ */
-
 .coffee-stain {
     position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle at 30% 30%, 
-        rgba(101, 67, 33, 0.35) 0%, 
-        rgba(74, 50, 28, 0.25) 40%,
-        rgba(60, 40, 20, 0.15) 70%,
-        transparent 100%
-    );
     pointer-events: none;
+    filter: sepia(0.8) saturate(1.5) brightness(0.6);
+    mix-blend-mode: multiply;
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Top left stain */
 .coffee-stain-1 {
-    width: 180px;
-    height: 180px;
-    top: 60px;
-    left: 80px;
-    opacity: 0.6;
-    transform: rotate(-15deg);
-}
-
-/* Top left smaller stain */
-.coffee-stain-2 {
-    width: 120px;
-    height: 120px;
-    top: 40px;
-    left: 40px;
-    opacity: 0.4;
-    transform: rotate(25deg);
-}
-
-/* Bottom right stain (appears on hover) */
-.coffee-stain-3 {
     width: 200px;
     height: 200px;
-    bottom: 120px;
-    right: 100px;
-    opacity: 0;
-    transform: rotate(45deg) scale(0.8);
+    top: 40px;
+    left: 60px;
+    opacity: 0.7;
+    transform: rotate(-25deg);
 }
 
-/* ================================
-   RAVEN - MORE VISIBLE!
-   ================================ */
+.coffee-stain-2 {
+    width: 150px;
+    height: 150px;
+    top: 80px;
+    left: 30px;
+    opacity: 0.5;
+    transform: rotate(45deg);
+}
+
+.coffee-stain-3 {
+    width: 220px;
+    height: 220px;
+    bottom: 100px;
+    right: 80px;
+    opacity: 0;
+    transform: rotate(15deg) scale(0.8);
+}
 
 .raven-container {
     position: absolute;
-    top: 80px;
-    right: 120px;
+    top: 60px;
+    right: 100px;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
     transition: transform 0.3s ease;
     z-index: 10;
 }
 
 .raven-container:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+.raven-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.4) sepia(0.3);
+    opacity: 0.85;
+}
+
+.raven-eyes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 .raven-eye {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #d4af37;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
     transition: opacity 0.15s ease;
 }
 
-/* Blink animation */
-@keyframes blink {
-    0%, 45%, 55%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+.left-eye {
+    top: 35%;
+    left: 40%;
 }
 
-/* ================================
-   HERO CONTENT
-   ================================ */
+.right-eye {
+    top: 35%;
+    right: 38%;
+}
 
 .hero-content {
     text-align: center;
@@ -157,10 +156,8 @@ body {
     margin-bottom: 1.5rem;
     position: relative;
     animation: candleGlow 3s ease-in-out infinite;
-    transition: text-shadow 0.3s ease;
 }
 
-/* Candlelight glow animation */
 @keyframes candleGlow {
     0%, 100% {
         text-shadow: 
@@ -194,10 +191,6 @@ body {
     font-weight: 300;
 }
 
-/* ================================
-   SCROLL INDICATOR WITH INK SPLATTER
-   ================================ */
-
 .scroll-indicator {
     position: absolute;
     bottom: 60px;
@@ -206,7 +199,6 @@ body {
     align-items: center;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.3s ease;
 }
 
 .scroll-text {
@@ -235,68 +227,59 @@ body {
     }
 }
 
-/* ================================
-   INK SPLATTERS - MORE VISIBLE!
-   ================================ */
-
 .ink-splatter {
     position: absolute;
-    border-radius: 50%;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.5s ease, transform 0.5s ease;
-    filter: blur(8px);
+    filter: brightness(0.3) contrast(1.2);
+    mix-blend-mode: multiply;
 }
 
 .ink-1 {
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(42, 37, 31, 0.6) 0%, transparent 70%);
-    top: -40px;
+    width: 120px;
+    height: 120px;
+    top: -60px;
     left: 50%;
-    transform: translateX(-50%) scale(0.8);
+    transform: translateX(-50%) rotate(-15deg) scale(0.8);
 }
 
 .ink-2 {
-    width: 70px;
-    height: 70px;
-    background: radial-gradient(circle, rgba(42, 37, 31, 0.5) 0%, transparent 70%);
-    top: -20px;
-    left: 30%;
-    transform: translateX(-50%) scale(0.8);
+    width: 90px;
+    height: 90px;
+    top: -40px;
+    left: 20%;
+    transform: translateX(-50%) rotate(25deg) scale(0.8);
 }
 
 .ink-3 {
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, rgba(42, 37, 31, 0.4) 0%, transparent 70%);
-    top: -30px;
-    right: 20%;
-    transform: translateX(50%) scale(0.8);
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    right: 15%;
+    transform: translateX(50%) rotate(-30deg) scale(0.8);
 }
-
-/* ================================
-   HOVER EFFECTS
-   ================================ */
 
 .scroll-indicator:hover .scroll-text {
     color: #d4af37;
 }
 
 .scroll-indicator:hover .ink-splatter {
-    opacity: 1;
-    transform: translateX(-50%) scale(1) !important;
+    opacity: 0.8;
+}
+
+.scroll-indicator:hover .ink-1 {
+    transform: translateX(-50%) rotate(-15deg) scale(1);
 }
 
 .scroll-indicator:hover .ink-2 {
-    transform: translateX(-50%) scale(1) !important;
+    transform: translateX(-50%) rotate(25deg) scale(1);
 }
 
 .scroll-indicator:hover .ink-3 {
-    transform: translateX(50%) scale(1) !important;
+    transform: translateX(50%) rotate(-30deg) scale(1);
 }
 
-/* Intensify candle glow on hover */
 #hero:has(.scroll-indicator:hover) .hero-name {
     text-shadow: 
         0 0 40px rgba(212, 175, 55, 0.9),
@@ -305,15 +288,10 @@ body {
         0 0 100px rgba(212, 175, 55, 0.2) !important;
 }
 
-/* Show coffee stain on hover */
 #hero:has(.scroll-indicator:hover) .coffee-stain-3 {
-    opacity: 0.5;
-    transform: rotate(45deg) scale(1);
+    opacity: 0.6;
+    transform: rotate(15deg) scale(1);
 }
-
-/* ================================
-   RESPONSIVE
-   ================================ */
 
 @media (max-width: 768px) {
     .hero-name {
@@ -329,19 +307,21 @@ body {
     }
     
     .raven-container {
-        top: 40px;
-        right: 40px;
-    }
-    
-    .coffee-stain-1 {
         top: 30px;
-        left: 30px;
-        width: 120px;
-        height: 120px;
-    }
-    
-    .coffee-stain-2 {
+        right: 30px;
         width: 80px;
         height: 80px;
     }
-            }
+    
+    .coffee-stain-1 {
+        width: 120px;
+        height: 120px;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .coffee-stain-2 {
+        width: 90px;
+        height: 90px;
+    }
+}
