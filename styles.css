@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
 }
 
+/* ================================
+   HERO SECTION
+   ================================ */
+
 #hero {
     position: relative;
     height: 100vh;
@@ -22,6 +26,7 @@ body {
     overflow: hidden;
 }
 
+/* Paper Texture */
 .paper-texture {
     position: absolute;
     top: 0;
@@ -33,63 +38,102 @@ body {
             0deg,
             transparent,
             transparent 2px,
-            rgba(255, 255, 255, 0.02) 2px,
-            rgba(255, 255, 255, 0.02) 4px
+            rgba(255, 255, 255, 0.01) 2px,
+            rgba(255, 255, 255, 0.01) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.01) 2px,
+            rgba(255, 255, 255, 0.01) 4px
         );
     pointer-events: none;
-    opacity: 0.3;
+    opacity: 0.5;
 }
+
+/* ================================
+   COFFEE STAINS - MORE VISIBLE!
+   ================================ */
 
 .coffee-stain {
     position: absolute;
-    width: 150px;
-    height: 150px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(101, 67, 33, 0.2) 0%, transparent 70%);
-    filter: blur(20px);
+    background: radial-gradient(
+        circle at 30% 30%, 
+        rgba(101, 67, 33, 0.35) 0%, 
+        rgba(74, 50, 28, 0.25) 40%,
+        rgba(60, 40, 20, 0.15) 70%,
+        transparent 100%
+    );
     pointer-events: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.coffee-stain.top-left {
-    top: 50px;
-    left: 50px;
-    opacity: 0.3;
+/* Top left stain */
+.coffee-stain-1 {
+    width: 180px;
+    height: 180px;
+    top: 60px;
+    left: 80px;
+    opacity: 0.6;
+    transform: rotate(-15deg);
 }
 
-.coffee-stain.bottom-right {
-    bottom: 100px;
+/* Top left smaller stain */
+.coffee-stain-2 {
+    width: 120px;
+    height: 120px;
+    top: 40px;
+    left: 40px;
+    opacity: 0.4;
+    transform: rotate(25deg);
+}
+
+/* Bottom right stain (appears on hover) */
+.coffee-stain-3 {
+    width: 200px;
+    height: 200px;
+    bottom: 120px;
     right: 100px;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transform: rotate(45deg) scale(0.8);
 }
 
-.raven {
+/* ================================
+   RAVEN - MORE VISIBLE!
+   ================================ */
+
+.raven-container {
     position: absolute;
     top: 80px;
-    right: 100px;
-    color: #4a3f35;
-    opacity: 0.6;
+    right: 120px;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: transform 0.3s ease;
+    z-index: 10;
 }
 
-.raven:hover {
-    opacity: 0.9;
+.raven-container:hover {
+    transform: scale(1.1);
 }
 
 .raven-eye {
-    fill: currentColor;
-    animation: blink 8s infinite;
+    transition: opacity 0.15s ease;
 }
 
+/* Blink animation */
 @keyframes blink {
-    0%, 49%, 51%, 100% {
+    0%, 45%, 55%, 100% {
         opacity: 1;
     }
     50% {
         opacity: 0;
     }
 }
+
+/* ================================
+   HERO CONTENT
+   ================================ */
 
 .hero-content {
     text-align: center;
@@ -113,18 +157,24 @@ body {
     margin-bottom: 1.5rem;
     position: relative;
     animation: candleGlow 3s ease-in-out infinite;
+    transition: text-shadow 0.3s ease;
 }
 
+/* Candlelight glow animation */
 @keyframes candleGlow {
     0%, 100% {
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.5),
-                     0 0 40px rgba(212, 175, 55, 0.3),
-                     0 0 60px rgba(212, 175, 55, 0.1);
+        text-shadow: 
+            0 0 20px rgba(212, 175, 55, 0.6),
+            0 0 40px rgba(212, 175, 55, 0.4),
+            0 0 60px rgba(212, 175, 55, 0.2),
+            0 0 80px rgba(212, 175, 55, 0.1);
     }
     50% {
-        text-shadow: 0 0 30px rgba(212, 175, 55, 0.7),
-                     0 0 50px rgba(212, 175, 55, 0.4),
-                     0 0 70px rgba(212, 175, 55, 0.2);
+        text-shadow: 
+            0 0 30px rgba(212, 175, 55, 0.8),
+            0 0 50px rgba(212, 175, 55, 0.5),
+            0 0 70px rgba(212, 175, 55, 0.3),
+            0 0 90px rgba(212, 175, 55, 0.15);
     }
 }
 
@@ -144,17 +194,19 @@ body {
     font-weight: 300;
 }
 
+/* ================================
+   SCROLL INDICATOR WITH INK SPLATTER
+   ================================ */
+
 .scroll-indicator {
     position: absolute;
     bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    color: #a8a8a8;
     cursor: pointer;
-    transition: all 0.3s ease;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .scroll-text {
@@ -164,10 +216,14 @@ body {
     margin-bottom: 0.5rem;
     color: #a8a8a8;
     transition: color 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .scroll-arrow {
     animation: float 2s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes float {
@@ -179,20 +235,49 @@ body {
     }
 }
 
+/* ================================
+   INK SPLATTERS - MORE VISIBLE!
+   ================================ */
+
 .ink-splatter {
     position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    filter: blur(8px);
+}
+
+.ink-1 {
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle, rgba(42, 37, 31, 0.4) 0%, transparent 60%);
-    border-radius: 50%;
-    filter: blur(10px);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
+    background: radial-gradient(circle, rgba(42, 37, 31, 0.6) 0%, transparent 70%);
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
 }
+
+.ink-2 {
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, rgba(42, 37, 31, 0.5) 0%, transparent 70%);
+    top: -20px;
+    left: 30%;
+    transform: translateX(-50%) scale(0.8);
+}
+
+.ink-3 {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(42, 37, 31, 0.4) 0%, transparent 70%);
+    top: -30px;
+    right: 20%;
+    transform: translateX(50%) scale(0.8);
+}
+
+/* ================================
+   HOVER EFFECTS
+   ================================ */
 
 .scroll-indicator:hover .scroll-text {
     color: #d4af37;
@@ -200,28 +285,35 @@ body {
 
 .scroll-indicator:hover .ink-splatter {
     opacity: 1;
+    transform: translateX(-50%) scale(1) !important;
 }
 
-.scroll-indicator:hover ~ .coffee-stain.hover-stain {
-    opacity: 0.3;
+.scroll-indicator:hover .ink-2 {
+    transform: translateX(-50%) scale(1) !important;
 }
 
-.scroll-indicator:hover ~ .hero-content .hero-name {
-    animation: candleGlowIntense 1s ease-in-out infinite;
+.scroll-indicator:hover .ink-3 {
+    transform: translateX(50%) scale(1) !important;
 }
 
-@keyframes candleGlowIntense {
-    0%, 100% {
-        text-shadow: 0 0 30px rgba(212, 175, 55, 0.7),
-                     0 0 50px rgba(212, 175, 55, 0.5),
-                     0 0 70px rgba(212, 175, 55, 0.3);
-    }
-    50% {
-        text-shadow: 0 0 40px rgba(212, 175, 55, 0.9),
-                     0 0 60px rgba(212, 175, 55, 0.6),
-                     0 0 80px rgba(212, 175, 55, 0.4);
-    }
+/* Intensify candle glow on hover */
+#hero:has(.scroll-indicator:hover) .hero-name {
+    text-shadow: 
+        0 0 40px rgba(212, 175, 55, 0.9),
+        0 0 60px rgba(212, 175, 55, 0.6),
+        0 0 80px rgba(212, 175, 55, 0.4),
+        0 0 100px rgba(212, 175, 55, 0.2) !important;
 }
+
+/* Show coffee stain on hover */
+#hero:has(.scroll-indicator:hover) .coffee-stain-3 {
+    opacity: 0.5;
+    transform: rotate(45deg) scale(1);
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
 
 @media (max-width: 768px) {
     .hero-name {
@@ -236,13 +328,20 @@ body {
         font-size: 1.1rem;
     }
     
-    .raven {
+    .raven-container {
         top: 40px;
         right: 40px;
     }
     
-    .coffee-stain.top-left {
-        top: 20px;
-        left: 20px;
+    .coffee-stain-1 {
+        top: 30px;
+        left: 30px;
+        width: 120px;
+        height: 120px;
     }
-}
+    
+    .coffee-stain-2 {
+        width: 80px;
+        height: 80px;
+    }
+            }
