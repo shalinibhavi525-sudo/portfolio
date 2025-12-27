@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shambhavi Singh - From Forest to Function</title>
-
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lora:wght@400;500&family=Tangerine:wght@700&display=swap" rel="stylesheet">
@@ -12,20 +13,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    
+    <!-- HERO SECTION -->
     <section id="hero">
         <!-- Background elements -->
         <div class="paper-texture"></div>
-        <div class="coffee-stain top-left"></div>
-
-        <div class="raven" id="raven">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                <circle cx="9" cy="10" r="1.5" class="raven-eye"/>
-                <circle cx="15" cy="10" r="1.5" class="raven-eye"/>
+        
+        <!-- Coffee Stains - MORE VISIBLE -->
+        <div class="coffee-stain coffee-stain-1"></div>
+        <div class="coffee-stain coffee-stain-2"></div>
+        <div class="coffee-stain coffee-stain-3 hover-stain"></div>
+        
+        <!-- Raven - BETTER DESIGN -->
+        <div class="raven-container" id="raven">
+            <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                <!-- Raven body -->
+                <ellipse cx="50" cy="55" rx="20" ry="25" fill="#2a2520" opacity="0.8"/>
+                <!-- Wings -->
+                <path d="M30 50 Q20 45 15 50 L25 55 Z" fill="#2a2520" opacity="0.7"/>
+                <path d="M70 50 Q80 45 85 50 L75 55 Z" fill="#2a2520" opacity="0.7"/>
+                <!-- Head -->
+                <circle cx="50" cy="40" r="12" fill="#2a2520" opacity="0.8"/>
+                <!-- Beak -->
+                <path d="M50 42 L45 48 L50 46 Z" fill="#4a3f35"/>
+                <!-- Eyes with blink -->
+                <circle cx="45" cy="38" r="2.5" fill="#d4af37" class="raven-eye" opacity="1"/>
+                <circle cx="55" cy="38" r="2.5" fill="#d4af37" class="raven-eye" opacity="1"/>
+                <!-- Tail feathers -->
+                <path d="M50 75 L45 85 L50 80 L55 85 Z" fill="#2a2520" opacity="0.6"/>
             </svg>
         </div>
-
+        
+        <!-- Content -->
         <div class="hero-content">
             <p class="hero-subtitle">From Forest to Function</p>
             
@@ -35,23 +54,27 @@
             
             <p class="hero-location">Teliamura Reserved Forest<br>Tripura, India</p>
         </div>
-
-        <a href="#story" class="scroll-indicator">
+        
+        <!-- Scroll indicator with ink splatter -->
+        <div class="scroll-indicator" id="scrollBtn">
+            <!-- Ink splatter background -->
+            <div class="ink-splatter ink-1"></div>
+            <div class="ink-splatter ink-2"></div>
+            <div class="ink-splatter ink-3"></div>
+            
             <span class="scroll-text">Explore the Work</span>
             <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 5v14M19 12l-7 7-7-7"/>
             </svg>
-
-            <div class="ink-splatter"></div>
-        </a>
-
-        <div class="coffee-stain bottom-right hover-stain"></div>
+        </div>
+        
     </section>
-
+    
+    <!-- Placeholder for next section -->
     <section id="story" style="height: 100vh; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #d4af37;">
         <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem;">THE LABORATORY</h2>
     </section>
     
     <script src="script.js"></script>
 </body>
-</html>
+        </html>
