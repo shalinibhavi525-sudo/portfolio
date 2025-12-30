@@ -13,13 +13,16 @@
 <body>
     
     <!-- HERO SECTION -->
-    <section class="hero-section">
+    <section class="hero-section" id="hero">
         <div class="paper-grain"></div>
         <div class="vignette"></div>
         
-        <img src="raven.png" class="asset raven" alt="">
+        <!-- Coffee stains FIRST (so they're behind raven!) -->
         <img src="coffee%20stain%201.png" class="asset stain-top-left" alt="">
         <img src="coffee%20stain%202.png" class="asset stain-bottom-right" alt="">
+        
+        <!-- Raven on TOP of stains! -->
+        <img src="raven.png" class="asset raven" alt="">
         <img src="rose%201.png" class="asset rose-hero" alt="">
         
         <div class="hero">
@@ -39,6 +42,9 @@
     
     <!-- LAB SECTION -->
     <section id="lab" class="lab-section">
+        <!-- BACK BUTTON -->
+        <a href="#hero" class="back-btn">← Back</a>
+        
         <div class="journal-wrapper">
             <img src="burnt%20paper.png" class="journal-page" alt="">
             
@@ -53,15 +59,18 @@
                 <div class="journal-text">
                     <p>My lab isn't in MIT's corridors or Silicon Valley's campuses. It's deep in Teliamura Reserved Forest—a BSF base where monkeys watch me code and monsoons test my internet.</p>
                     
-                    <p>8 projects deployed.<br>
-                       1 research paper published.<br>
-                       7 open source contributions merged.<br>
-                       Zero excuses made.</p>
+                    <p style="margin-top: 20px;">
+                        8 projects deployed.<br>
+                        1 research paper published.<br>
+                        7 open source contributions merged.<br>
+                        Zero excuses made.
+                    </p>
                     
-                    <p>I don't wait for perfect conditions. I create despite imperfect ones.</p>
+                    <p style="margin-top: 20px;">I don't wait for perfect conditions. I create despite imperfect ones.</p>
                     
-                    <p style="font-style: italic; font-size: 1.4rem; margin-top: 20px;">
-                        This is where function meets forest.<br>This is where I build.
+                    <p style="font-style: italic; font-size: 1.4rem; margin-top: 25px;">
+                        This is where function meets forest.<br>
+                        This is where I build.
                     </p>
                 </div>
                 
@@ -77,7 +86,10 @@
     </section>
     
     <!-- PROJECTS SECTION - PLACEHOLDER -->
-    <section id="projects" style="height: 100vh; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #d4af37;">
+    <section id="projects" style="height: 100vh; background: #1a1a1a; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #d4af37; position: relative;">
+        <!-- BACK BUTTON -->
+        <a href="#lab" class="back-btn" style="position: absolute; top: 40px; left: 40px; color: #d4af37; border-color: rgba(212, 175, 55, 0.3);">← Back</a>
+        
         <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem;">THE WORK</h2>
     </section>
     
