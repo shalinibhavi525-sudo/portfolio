@@ -1,110 +1,137 @@
-/* Fonts - Add these to the top of your CSS */
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Special+Elite&display=swap');
+/* GLOBAL SETTINGS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Disables global scroll */
+    background-color: #121212;
+    color: #e0e0e0;
+}
 
-#hero {
-    background: #1a1a1a; /* Dark Grey Background */
-    position: relative;
-    overflow: hidden;
-    display: flex;
+.section {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    overflow-y: auto;
+    padding: 40px;
 }
+.section.active { display: flex; }
 
-/* Asset Positioning */
-.asset {
-    position: absolute;
-    pointer-events: none; /* Stops images from blocking buttons */
-    z-index: 1;
-}
-
-.stain-top-left { top: -20px; left: -20px; width: 350px; opacity: 0.4; }
-.raven-top-right { top: 0; right: 0; width: 250px; } /* At the very corner */
+/* ASSETS (Hero) */
+.asset { position: absolute; z-index: 1; pointer-events: none; }
+.stain-top-left { top: -40px; left: -40px; width: 350px; opacity: 0.5; }
+.raven-top-right { top: 0; right: 0; width: 250px; }
 .rose-bottom-left { bottom: 20px; left: 20px; width: 180px; }
-.stain-bottom-mid { bottom: 15%; right: 15%; width: 300px; opacity: 0.3; } /* Much to the middle */
+.stain-bottom-mid { bottom: 10%; right: 20%; width: 300px; opacity: 0.4; }
 
-/* Text Styling */
+/* TEXT STYLING */
 .hero-title {
-    font-family: 'Special Elite', serif;
-    color: rgba(255,255,255,0.3);
+    font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+    letter-spacing: 6px;
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-bottom: 15px;
 }
 
-.gold-text {
+.name-text {
     font-family: 'Pinyon Script', cursive;
-    font-size: 7rem;
-    background: linear-gradient(to bottom, #cfaf6c 22%, #fee9a0 45%, #d1b464 50%, #fee9a0 55%, #8a6e2f 78%);
+    font-size: 8rem;
+    line-height: 1;
+    background: linear-gradient(to bottom, #cfcfcf 0%, #ffffff 45%, #b5b5b5 50%, #ffffff 55%, #7a7a7a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 0 2px rgba(207, 175, 108, 0.3));
+    transition: filter 0.5s ease;
 }
 
-.silver-text {
-    font-family: 'Special Elite', serif;
-    font-size: 1.2rem;
-    background: linear-gradient(to bottom, #bdbdbd 0%, #ffffff 50%, #757575 100%);
+.silver-tag-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 40px;
 }
 
-/* The Candle Flicker Animation */
-@keyframes flicker {
-    0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(254, 233, 160, 0.5); }
-    10% { opacity: 0.8; text-shadow: 0 0 5px rgba(254, 233, 160, 0.2); }
-    20% { opacity: 1; text-shadow: 0 0 15px rgba(254, 233, 160, 0.8); }
-    40% { opacity: 0.9; text-shadow: 0 0 2px rgba(254, 233, 160, 0.1); }
-    60% { opacity: 1; transform: scale(1); }
-    70% { opacity: 0.8; transform: scale(1.01); }
-    80% { opacity: 1; text-shadow: 0 0 20px rgba(254, 233, 160, 0.9); }
-}
-
-/* Trigger flicker on name when hovering explore button */
-.button-wrapper:hover ~ #hero-name,
-#explore-btn:hover ~ #hero-name,
-#hero-content:has(#explore-btn:hover) #hero-name {
-    animation: flicker 0.15s infinite;
-}
-
-/* If your browser supports it, this is the cleanest trigger: */
-.hero-content:has(#explore-btn:hover) #hero-name {
-    animation: flicker 0.2s infinite;
-}
-
-/* Ink Splash Button */
+/* BUTTONS & INK */
+.button-container { position: relative; display: inline-block; margin-top: 20px; }
 .ink-button {
-    background: none;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-    padding: 15px 40px;
-    font-family: 'Special Elite', serif;
+    background: transparent;
+    border: 1px solid #c0c0c0;
+    color: #fff;
+    padding: 12px 40px;
+    font-family: 'EB Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     cursor: pointer;
     position: relative;
-    z-index: 10;
-    overflow: hidden;
-    transition: color 0.4s;
+    z-index: 5;
+    transition: 0.4s;
 }
 
-.ink-button::before {
-    content: '';
+.ink-splash {
     position: absolute;
-    top: 50%; left: 50%;
-    width: 0; height: 0;
-    background: white;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-    z-index: -1;
+    top: 50%; left: 50%; width: 250px; height: 250px;
+    background: url('ink.png') no-repeat center;
+    background-size: contain;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s;
 }
+.button-container:hover .ink-splash { transform: translate(-50%, -50%) scale(1.4); opacity: 0.7; }
+.button-container:hover .ink-button { border-color: transparent; color: #fff; }
 
-.ink-button:hover::before {
-    width: 300px;
-    height: 300px;
+/* CANDLE SHINE ANIMATION */
+@keyframes candleShine {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.5)); transform: scale(1.02); }
 }
+.shine-active { animation: candleShine 2.5s ease-in-out infinite !important; }
 
-.ink-button:hover {
-    color: black;
+/* LAB SECTION */
+#lab { background-color: #2b1d12; }
+.lab-paper {
+    background: #f4ecd8;
+    width: 80%; max-width: 700px; padding: 60px;
+    position: relative; box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+    color: #2c2c2c;
 }
+.lab-flower { position: absolute; bottom: 10px; left: 10px; width: 100px; }
+.back-link { display: block; margin-top: 30px; background: none; border: none; font-family: 'EB Garamond'; cursor: pointer; text-decoration: underline; color: #555; }
+
+/* WORK SECTION */
+#wrk { background: #0a192f; border: 4px double #ffd700; margin: 20px; height: calc(100vh - 40px); }
+.gateway-title { font-family: 'Pinyon Script'; font-size: 5rem; color: #ffd700; }
+
+/* PROJECTS SECTION */
+#projects { background: url('forest-bg.jpg') center/cover; }
+.forest-bg-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,20,0,0.7); }
+.forest-title { font-family: 'Special Elite'; color: #90ee90; position: relative; z-index: 2; margin-bottom: 30px; }
+.grid-container { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 100%; }
+.photocard {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(144, 238, 144, 0.3);
+    padding: 40px 10px;
+    cursor: pointer;
+    color: #90ee90;
+    font-family: 'Special Elite';
+    transition: 0.3s;
+}
+.photocard:hover { background: rgba(144,238,144,0.1); transform: translateY(-5px); }
+
+/* SUBPAGE */
+.overlay {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: #d3d3d3; color: #2c2c2c;
+    display: none; z-index: 100; padding: 60px; overflow-y: auto;
+}
+.rocky-texture { position: absolute; top:0; left:0; width:100%; height:100%; background: url('rock-texture.png'); opacity: 0.1; pointer-events: none; }
+.close-btn { position: absolute; top: 20px; right: 40px; font-size: 2rem; cursor: pointer; }
