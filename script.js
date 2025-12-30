@@ -1,4 +1,3 @@
-// Smooth scroll for ALL links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -9,7 +8,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// FULL PROJECT DATA
 const projectsData = {
     "VERITAS": {
         tagline: "Decentralized, Offline-First Misinformation Detection for the Edge",
@@ -102,60 +100,47 @@ const projectsData = {
     }
 };
 
-// Generate the 8 project cards with alternating ferns
 const grid = document.getElementById('projectGrid');
 const ferns = ['fern%201.png', 'fern%202.png'];
 
 Object.keys(projectsData).forEach((name, index) => {
     const card = document.createElement('div');
     card.className = 'photocard';
-    
-    // Add fern decoration (alternating)
+    const imgLayer = document.createElement('div');
+    imgLayer.className = 'card-image-layer';
     const fern = document.createElement('img');
     fern.src = ferns[index % 2];
     fern.className = 'card-fern';
-    fern.classList.add(index % 2 === 0 ? 'fern-left' : 'fern-right');
-    
+    fern.style.position = "absolute"; fern.style.width = "80px"; fern.style.zIndex = "5";
+    if(index % 2 === 0) { fern.style.left = "-20px"; fern.style.bottom = "40px"; } 
+    else { fern.style.right = "-20px"; fern.style.bottom = "40px"; fern.style.transform = "scaleX(-1)"; }
     card.innerHTML = `<div class="card-title">${name}</div>`;
+    card.prepend(imgLayer);
     card.appendChild(fern);
-    
     card.onclick = () => openProject(name);
     grid.appendChild(card);
 });
 
-// Open project detail subpage
 function openProject(name) {
     const project = projectsData[name];
-    
-    let content = `
-        <h1>${name}</h1>
-        <h2>${project.tagline}</h2>
-    `;
-    
-    // Add all available fields
+    let content = `<h1>${name}</h1><h2>${project.tagline}</h2>`;
     for (let [key, value] of Object.entries(project)) {
-        if (key === 'tagline') continue; // Already shown as h2
-        
+        if (key === 'tagline') continue;
         if (key === 'highlights' && Array.isArray(value)) {
             content += `<p><strong>[${key.toUpperCase()}]</strong></p>`;
-            value.forEach(item => {
-                content += `<p>• ${item}</p>`;
-            });
+            value.forEach(item => { content += `<p>• ${item}</p>`; });
         } else if (key === 'tech') {
             content += `<p><strong>[TECH STACK]:</strong> ${value}</p>`;
         } else {
             content += `<p><strong>[${key.toUpperCase()}]:</strong> ${value}</p>`;
         }
     }
-    
     document.getElementById('projectDetail').innerHTML = content;
     document.getElementById('subpage').style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
-// Close project subpage
 function closeProject() {
     document.getElementById('subpage').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
-
