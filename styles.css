@@ -1,22 +1,20 @@
 :root {
     --gold: #d4af37;
     --silver: #b5b5b5;
-    --bg-charcoal: #0a0a0a;  /* Home Page Grey */
-    --leather-brown: #9d7e5f; /* Lab Section Brown */
-    --work-blue: #001a33;     /* Work Section Blue */
+    --bg-charcoal: #0a0a0a;
+    --leather-brown: #9d7e5f;
+    --work-blue: #001a33; 
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* LOCK MAIN BODY SCROLL */
 html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden; 
+    overflow: hidden; /* Body remains locked */
     background-color: var(--bg-charcoal);
 }
 
-/* MODULAR SECTION SCROLLING */
 section {
     width: 100vw;
     height: 100vh;
@@ -24,118 +22,91 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Allows content to start at top */
-    padding: 100px 20px;
-    overflow-y: auto; /* Individual scrollbar if content is long */
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold) transparent;
+    overflow-y: auto; /* Individual sections scroll if content is long */
 }
 
-/* Custom Scrollbar for Chrome/Safari */
-section::-webkit-scrollbar { width: 6px; }
-section::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
-
-/* --- SECTION BACKGROUNDS --- */
+/* --- HOME SECTION --- */
 .hero-section { background-color: var(--bg-charcoal); justify-content: center; }
-.lab-section { background-color: var(--leather-brown); }
+.name { font-family: 'Pinyon Script', cursive; font-size: 5rem; color: var(--gold); }
+
+/* --- LAB SECTION --- */
+.lab-section { background-color: var(--leather-brown); padding-top: 50px; }
+.journal-wrapper { position: relative; width: 85%; max-width: 480px; z-index: 10; }
+/* Flower placement: bottom left of the PAGE asset */
+.baby-breath-lab { 
+    position: absolute; 
+    bottom: -10px; 
+    left: -25px; 
+    width: 150px; 
+    z-index: 20; 
+}
+
+/* --- WORK SECTION --- */
 .work-intro-section { background-color: var(--work-blue); justify-content: center; }
 
+/* --- PROJECTS SECTION --- */
 .projects-grid-section {
     background: url('background.jpg') center/cover no-repeat;
     background-attachment: fixed;
-    /* Vibrant look - slight overlay to keep text readable but keep green colors */
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.1); 
 }
 
-/* --- ASSETS & HERO --- */
-.asset { position: absolute; pointer-events: none; }
-.stain-top-left { top: 0; left: 0; width: 350px; opacity: 0.5; filter: brightness(0.4); z-index: 2; }
-.stain-bottom-right { bottom: 0; right: 0; width: 300px; opacity: 0.5; filter: brightness(0.4); z-index: 2; }
-.raven { top: 20px; right: 20px; width: 220px; filter: brightness(0); z-index: 3; }
-.rose-hero { bottom: 20px; left: 20px; width: 180px; opacity: 0.4; transform: rotate(-15deg); z-index: 2; }
-
-.hero { position: relative; z-index: 10; text-align: center; }
-.name { font-family: 'Pinyon Script', cursive; font-size: clamp(3.5rem, 8vw, 7rem); color: var(--gold); line-height: 0.9; }
-.tagline { font-family: 'Cormorant Garamond', serif; font-size: 0.75rem; letter-spacing: 10px; text-transform: uppercase; color: var(--silver); opacity: 0.6; margin-bottom: 10px; }
-.roles { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold); font-style: italic; margin: 20px 0; }
-.location { font-family: 'Cormorant Garamond', serif; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; color: #555; }
-
-/* --- BUTTONS --- */
-.cta-wrapper, .lab-cta-wrapper { position: relative; margin-top: 40px; display: inline-block; }
-.explore-btn, .lab-continue-btn {
-    text-decoration: none; color: var(--silver); padding: 15px 45px; border: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.85rem; letter-spacing: 3px; background: rgba(0,0,0,0.6); display: block;
-    position: relative; z-index: 10; font-family: 'Cormorant Garamond', serif; transition: 0.4s; text-transform: uppercase;
-}
-.back-btn {
-    position: absolute; top: 30px; left: 30px; z-index: 100; text-decoration: none; color: #fff;
-    font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; padding: 10px 25px;
-    border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(0, 0, 0, 0.4);
-}
-.ink-hover, .lab-ink-hover { position: absolute; top: 50%; left: 50%; width: 400px; transform: translate(-50%, -50%) scale(0); opacity: 0; transition: 0.6s; filter: brightness(0); pointer-events: none; }
-.cta-wrapper:hover .ink-hover, .lab-cta-wrapper:hover .lab-ink-hover { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
-
-/* --- LAB CONTENT --- */
-.journal-wrapper { position: relative; width: 85%; max-width: 480px; z-index: 10; margin-bottom: 40px; }
-.journal-page { width: 100%; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5)); }
-.journal-content { position: absolute; top: 10%; left: 12%; right: 12%; bottom: 8%; color: #2d1e12; display: flex; flex-direction: column; }
-.journal-text { font-family: 'Caveat', cursive; font-size: 1.05rem; line-height: 1.3; flex-grow: 1; }
-.journal-signature { font-family: 'Pinyon Script', cursive; font-size: 2.1rem; text-align: right; }
-
-/* --- WORK INTRO --- */
-.section-big-title { font-family: 'Playfair Display', serif; font-size: clamp(6rem, 15vw, 12rem); color: rgba(212, 175, 55, 0.05); position: absolute; letter-spacing: 20px; font-weight: 900; z-index: 1; }
-.intro-container { position: relative; z-index: 10; text-align: center; max-width: 700px; }
-.intro-box { background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); padding: 50px 40px; }
-.view-collection-btn { display: inline-block; margin-top: 35px; padding: 15px 40px; border: 2px solid var(--gold); color: var(--gold); text-decoration: none; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; transition: 0.3s; font-size: 0.9rem; }
-.view-collection-btn:hover { background: var(--gold); color: #000; }
-
-/* --- GRID & SMALL POLAROIDS --- */
-.grid-container { position: relative; z-index: 2; max-width: 1100px; width: 100%; margin: 0 auto; }
-.archive-tag { font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: var(--gold); letter-spacing: 4px; border: 2px solid var(--gold); padding: 12px 30px; display: inline-block; margin-bottom: 40px; background: rgba(0,0,0,0.5); }
-
-.project-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-    gap: 40px; 
-    width: 100%; 
-}
-
+/* POLAROID CARDS */
 .photocard {
     aspect-ratio: 4/5; background: white; border: 12px solid #fff;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden; transition: 0.4s;
+    position: relative; overflow: visible; /* Ferns can stick out */
 }
-.photocard:hover { transform: translateY(-10px) rotate(1deg); }
 
 .card-image-layer {
     position: absolute; inset: 0; background: url('card.png') center/cover;
-    filter: blur(2.5px) brightness(0.7); z-index: 1;
+    filter: blur(1.5px) brightness(0.8); /* Reduced blur as requested */
+    z-index: 1;
 }
 
+/* NEWSPAPER STYLE GREEN TEXT ON CARDS */
 .card-title {
-    position: relative; z-index: 10; border: 1.5px solid white;
-    padding: 10px 20px; color: white; font-family: 'Playfair Display', serif;
-    font-weight: 900; text-transform: uppercase; font-size: 1rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8); text-align: center;
+    position: relative; z-index: 10;
+    color: #023020; /* Dark Green */
+    font-family: 'Playfair Display', serif; /* Newspaper style font */
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 15px;
+    border: 1px solid #023020;
 }
 
-/* --- SUBPAGE OVERLAY --- */
-.subpage-overlay { 
-    position: fixed; inset: 0; z-index: 5000; 
-    display: none; background: #0a0a0a; 
-    overflow-y: auto; padding: 60px 20px; 
-}
-.close-subpage { 
-    display: block; margin: 0 auto 30px auto; background: none; 
-    border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; 
-    font-family: 'Courier Prime', monospace; cursor: pointer; text-transform: uppercase;
-}
-.typewriter-box { 
-    max-width: 800px; margin: 0 auto; background: #000; 
-    padding: 60px; border: 1px solid var(--gold); 
-    font-family: 'Courier Prime', monospace; color: #d4d4d4; 
-    position: relative; line-height: 1.6;
+/* Ferns sticking out */
+.card-fern {
+    position: absolute;
+    width: 80px;
+    z-index: 15;
+    pointer-events: none;
 }
 
-@media (max-width: 768px) { .project-grid { grid-template-columns: 1fr; } }
+/* --- SUBPAGE (GREY ROCKY TEXTURE) --- */
+.subpage-overlay {
+    position: fixed; inset: 0; z-index: 5000;
+    display: none;
+    background: #2a2a2a url('https://www.transparenttextures.com/patterns/dark-rock.png');
+    overflow-y: auto;
+    padding: 40px 20px;
+}
+
+.typewriter-box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 50px;
+    border: 1px solid var(--gold);
+    font-family: 'Courier Prime', monospace;
+    color: var(--gold); /* TEXT IS GOLD NOW */
+}
+
+.subpage-leaf {
+    position: fixed;
+    width: 50px;
+    opacity: 0.6;
+    pointer-events: none;
+}
