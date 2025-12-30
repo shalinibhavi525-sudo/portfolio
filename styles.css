@@ -244,7 +244,7 @@ section {
 
 .journal-content {
     position: absolute;
-    top: 8%;  /* Moved UP! */
+    top: 11%;  /* MOVED DOWN from 8%! */
     left: 12%;
     right: 12%;
     bottom: 5%;
@@ -253,9 +253,9 @@ section {
 
 .journal-header {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.9rem;  /* Smaller! */
+    font-size: 1.9rem;
     letter-spacing: 4px;
-    margin-bottom: 2px;
+    margin-bottom: 3px;  /* Added space! */
     font-weight: 600;
     color: #1a0f08;
 }
