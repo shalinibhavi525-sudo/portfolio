@@ -13,17 +13,20 @@
 
 html {
     scroll-behavior: smooth;
+    overflow: hidden;  /* DISABLE SCROLL! */
 }
 
 html, body {
     width: 100%;
-    overflow-x: hidden;
+    height: 100%;
+    overflow: hidden;  /* LOCK IT! */
 }
 
 section {
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;  /* EXACTLY full height! */
     position: relative;
+    overflow: hidden;
 }
 
 /* ================================
@@ -148,6 +151,7 @@ section {
     z-index: 10;
     font-family: 'Cormorant Garamond', serif;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .explore-btn:hover {
@@ -179,11 +183,12 @@ section {
 .lab-section {
     background-color: var(--leather-brown);
     display: flex;
-    flex-direction: column;  /* Changed to column! */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 80px 20px;
-    min-height: 100vh;
+    padding: 60px 20px;
+    height: 100vh;
+    overflow-y: auto;  /* Allow scroll INSIDE lab section only if content overflows */
 }
 
 .journal-wrapper {
@@ -266,12 +271,12 @@ section {
 }
 
 /* ================================
-   LAB CONTINUE BUTTON - NEW!
+   LAB CONTINUE BUTTON
    ================================ */
 
 .lab-cta-wrapper {
     position: relative;
-    margin-top: 60px;
+    margin-top: 50px;
     display: inline-block;
     z-index: 50;
 }
@@ -290,6 +295,7 @@ section {
     font-family: 'Cormorant Garamond', serif;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .lab-continue-btn:hover {
