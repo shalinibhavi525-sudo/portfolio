@@ -1,90 +1,110 @@
-// Full Data Restored from your original
-const projectsData = {
-    "VERITAS": {
-        tagline: "Decentralized, Offline-First Misinformation Detection for the Edge",
-        challenge: "In high-latency environments (like rural India or 3G networks), traditional cloud-based fact-checking is too slow (>1000ms), compromises user privacy by sending browsing data to central servers, and is inaccessible to 450M+ Indians lacking high-speed internet.",
-        architecture: "Veritas moves the intelligence from the Cloud to the Client. I optimized a DistilBERT Transformer model specifically for browser-based inference. By implementing Dynamic Int8 Quantization and leveraging the ONNX Runtime, I reduced the model size from ~400MB to 64.45MB without losing server-grade accuracy.",
-        highlights: [
-            "Ultra-Low Latency: Achieved ~23ms CPU inference locally, making it 20x faster than cloud API calls.",
-            "Privacy-Centric: Zero Egress—no user data ever leaves the local environment.",
-            "Web-Native Inference: Built using transformers.js for seamless integration into a production browser extension."
-        ],
-        tech: "DistilBERT, ONNX, Transformers.js, JavaScript"
-    },
-    "EdgeDev": {
-        tagline: "Architectural Hardening for the Digital Frontier",
-        story: "Forged in the Teliamura Reserved Forest (Tripura, India), built for developers operating under 'Adversarial Network Conditions.' Addresses scarcity: 4G mobile hotspots and a strict 2GB daily data limit.",
-        highlights: [
-            "Bandwidth Integrity: Hard-disables background telemetry and automatic updates.",
-            "Git Fetch Suppression: Prevents background repository polling leaks.",
-            "Efficiency: Saves ~50MB - 80MB of data per session."
-        ],
-        tech: "VS Code Extension API, CSS, System Protocols"
-    },
-    "Bhai-Lang": {
-        tagline: "A Hinglish Programming Language for Desi Developers",
-        concept: "Built on the idea that 'Bhai, code toh aise likhte hain!', mapping traditional logic to local Indian slang.",
-        highlights: [
-            "Custom Syntax Tree: Implements loops (jab tak bhai) and entry points (hi bhai).",
-            "Roast-Driven Error Messages: Features a 'Loving Roast' system for debugging."
-        ],
-        tech: "Python, Git, Regex"
-    },
-    "Calyx": {
-        tagline: "The Augmented Intelligence Harvest Layer",
-        concept: "A local prototype that treats memory as a network of semantic connections rather than a list of files.",
-        highlights: [
-            "Semantic Memory: Builds an evolving memory of connections via NLP intent.",
-            "Smart Concept Retrieval: Search your knowledge base by mood or concept."
-        ],
-        tech: "Python, Streamlit, NLP Intent Parser"
-    }
-    // (Repeat this structure for the remaining 4 projects)
-};
+/* Fonts - Add these to the top of your CSS */
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Special+Elite&display=swap');
 
-const grid = document.getElementById('projectGrid');
-
-// Generating the cards exactly as they were
-Object.keys(projectsData).forEach((name) => {
-    const card = document.createElement('div');
-    card.className = 'photocard';
-    card.innerHTML = `
-        <div class="card-image-layer"></div>
-        <div class="card-title">${name}</div>
-    `;
-    card.onclick = () => openProject(name);
-    grid.appendChild(card);
-});
-
-// FIXED OPEN FUNCTION (No longer blank)
-function openProject(name) {
-    const p = projectsData[name];
-    const overlay = document.getElementById('subpage');
-    const detail = document.getElementById('projectDetail');
-    
-    overlay.scrollTop = 0; // Starts at top
-
-    let content = `<h1>> ${name}</h1><br>`;
-    content += `<p><i>"${p.tagline}"</i></p><br>`;
-    
-    // Dynamically loop through all keys to ensure nothing is missed
-    for (let key in p) {
-        if (key === 'tagline') continue;
-        if (Array.isArray(p[key])) {
-            content += `<p><strong>[${key.toUpperCase()}]:</strong></p>`;
-            p[key].forEach(item => content += `<p>• ${item}</p>`);
-            content += `<br>`;
-        } else {
-            content += `<p><strong>[${key.toUpperCase()}]:</strong> ${p[key]}</p><br>`;
-        }
-    }
-
-    content += `<div style="font-family:'Pinyon Script'; font-size:2.5rem; text-align:right; margin-top:30px;">Shambhavi Singh</div>`;
-
-    detail.innerHTML = content;
-    overlay.style.display = 'block';
+#hero {
+    background: #1a1a1a; /* Dark Grey Background */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-function closeProject() {
-    document.getElementById('subpage').style.display = 'none';
+/* Asset Positioning */
+.asset {
+    position: absolute;
+    pointer-events: none; /* Stops images from blocking buttons */
+    z-index: 1;
+}
+
+.stain-top-left { top: -20px; left: -20px; width: 350px; opacity: 0.4; }
+.raven-top-right { top: 0; right: 0; width: 250px; } /* At the very corner */
+.rose-bottom-left { bottom: 20px; left: 20px; width: 180px; }
+.stain-bottom-mid { bottom: 15%; right: 15%; width: 300px; opacity: 0.3; } /* Much to the middle */
+
+/* Text Styling */
+.hero-title {
+    font-family: 'Special Elite', serif;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.gold-text {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 7rem;
+    background: linear-gradient(to bottom, #cfaf6c 22%, #fee9a0 45%, #d1b464 50%, #fee9a0 55%, #8a6e2f 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 2px rgba(207, 175, 108, 0.3));
+}
+
+.silver-text {
+    font-family: 'Special Elite', serif;
+    font-size: 1.2rem;
+    background: linear-gradient(to bottom, #bdbdbd 0%, #ffffff 50%, #757575 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px;
+}
+
+/* The Candle Flicker Animation */
+@keyframes flicker {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(254, 233, 160, 0.5); }
+    10% { opacity: 0.8; text-shadow: 0 0 5px rgba(254, 233, 160, 0.2); }
+    20% { opacity: 1; text-shadow: 0 0 15px rgba(254, 233, 160, 0.8); }
+    40% { opacity: 0.9; text-shadow: 0 0 2px rgba(254, 233, 160, 0.1); }
+    60% { opacity: 1; transform: scale(1); }
+    70% { opacity: 0.8; transform: scale(1.01); }
+    80% { opacity: 1; text-shadow: 0 0 20px rgba(254, 233, 160, 0.9); }
+}
+
+/* Trigger flicker on name when hovering explore button */
+.button-wrapper:hover ~ #hero-name,
+#explore-btn:hover ~ #hero-name,
+#hero-content:has(#explore-btn:hover) #hero-name {
+    animation: flicker 0.15s infinite;
+}
+
+/* If your browser supports it, this is the cleanest trigger: */
+.hero-content:has(#explore-btn:hover) #hero-name {
+    animation: flicker 0.2s infinite;
+}
+
+/* Ink Splash Button */
+.ink-button {
+    background: none;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 15px 40px;
+    font-family: 'Special Elite', serif;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    transition: color 0.4s;
+}
+
+.ink-button::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+
+.ink-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.ink-button:hover {
+    color: black;
 }
