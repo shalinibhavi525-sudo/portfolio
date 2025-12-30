@@ -144,104 +144,83 @@ section::-webkit-scrollbar { display: none; }
 .journal-signature { font-family: 'Pinyon Script', cursive; font-size: 2.1rem; text-align: right; margin-top: 5px; }
 .baby-breath-lab { position: absolute; bottom: -10px; left: -25px; width: 150px; z-index: 20; }
 
-/* --- WORK GATEWAY --- */
-.work-gateway-section {
-    background: #000;
-    min-height: 80vh;
+/* --- SECTION 3: INTRO STYLE --- */
+.work-intro-section {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 20px;
+    background: #000;
+    position: relative;
 }
-
-.work-title {
+.section-big-title {
     font-family: 'Playfair Display', serif;
-    font-size: 8rem;
-    color: #1a1a1a; /* Subtle dark grey background text */
+    font-size: 12rem;
+    color: rgba(255,255,255,0.02);
     position: absolute;
     letter-spacing: 20px;
 }
-
-.work-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-.explore-btn {
-    margin-top: 40px;
-    padding: 15px 40px;
-    background: transparent;
+.view-collection-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 35px;
     border: 1px solid #d4af37;
     color: #d4af37;
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: 0.4s;
+    text-decoration: none;
+    font-family: 'Courier Prime', monospace;
+    transition: 0.3s;
 }
 
-.explore-btn:hover {
-    background: #d4af37;
-    color: #000;
-}
-
-/* --- THE FOREST GRID OVERLAY --- */
-.project-grid-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: none; /* Hidden until clicked */
-    overflow-y: auto;
+/* --- SECTION 4: GRID STYLE --- */
+.projects-grid-section {
+    position: relative;
+    min-height: 100vh;
     padding: 100px 20px;
+    background: #020802;
 }
-
-.forest-bg {
-    position: fixed;
-    inset: 0;
-    background: url('background.jpg') center/cover no-repeat;
-    filter: brightness(0.4);
-    z-index: -1;
+.forest-bg-layer {
+    position: absolute; inset: 0;
+    background: url('background.jpg') center/cover no-repeat fixed;
+    filter: brightness(0.3);
+    z-index: 1;
 }
+.grid-container { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
 
-.exit-grid {
-    position: fixed;
-    top: 30px; left: 30px;
-    background: none; border: none;
-    color: #fff; font-family: 'Courier Prime', monospace;
-    cursor: pointer; z-index: 101;
-}
-
-/* --- PHOTOCARD STYLING --- */
+/* The Photocards */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 900px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr; /* 2 columns as requested */
+    gap: 50px;
+    margin-top: 50px;
 }
-
 .photocard {
     aspect-ratio: 3/4;
     background: url('card.png') center/cover;
-    border: 10px solid #fff;
+    border: 12px solid #fff;
     cursor: pointer;
     display: flex;
-    align-items: flex-end;
-    transition: 0.5s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: 0.5s transform ease;
 }
-
-.photocard::before {
-    content: ''; position: absolute; inset: 0;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(5px);
-}
-
 .card-title {
-    position: relative; z-index: 5;
-    width: 100%; background: rgba(255,255,255,0.95);
-    color: #023020; /* Darkest Green */
+    background: rgba(255,255,255,0.95);
+    color: #023020; /* Deepest Green */
     font-family: 'Playfair Display', serif;
-    font-weight: 900; padding: 15px;
-    text-align: center; border-top: 3px double #023020;
+    font-weight: 900;
+    padding: 15px;
+    text-align: center;
+    border-top: 4px double #023020;
+    text-transform: uppercase;
+}
+
+/* --- SUBPAGE --- */
+.subpage-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    display: none; padding: 50px; overflow-y: auto;
+}
+.rocky-bg {
+    position: absolute; inset: 0;
+    background: #1a1a1a url('https://www.transparenttextures.com/patterns/dark-rock.png');
+    z-index: -1;
 }
