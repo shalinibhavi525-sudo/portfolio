@@ -3,205 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shambhavi Singh</title>
-    
-    <!-- Google Fonts -->
+    <title>Shambhavi Singh | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --gold: #d4af37;
-            --silver: #b5b5b5;
-            --deep-black: #050505;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--deep-black);
-            color: var(--silver);
-            font-family: 'Cormorant Garamond', serif;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* --- THE PAPER TEXTURE --- */
-        .paper-layer {
-            position: fixed;
-            inset: 0;
-            z-index: -10;
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .vignette {
-            position: fixed;
-            inset: 0;
-            z-index: -9;
-            background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.8) 100%);
-            pointer-events: none;
-        }
-
-        /* --- REALISTIC ASSETS --- */
-        
-        /* Realistic Raven Silhouette */
-        .raven {
-            position: fixed;
-            top: 40px;
-            right: 60px;
-            width: 120px;
-            height: auto;
-            opacity: 0.5;
-            filter: brightness(0.1);
-            z-index: -2;
-            pointer-events: none;
-            transform: rotate(5deg);
-        }
-
-        /* Realistic Coffee Stains */
-        .stain {
-            position: fixed;
-            z-index: -3;
-            pointer-events: none;
-            mix-blend-mode: multiply; /* Makes it soak into the texture */
-            opacity: 0.4;
-        }
-
-        .stain-top {
-            top: -50px; left: -50px;
-            width: 450px;
-            filter: sepia(0.5) contrast(1.2);
-        }
-
-        .stain-ring {
-            bottom: 50px; right: 50px;
-            width: 250px;
-            opacity: 0.2;
-            filter: sepia(1) brightness(0.5);
-        }
-
-        /* Pressed Rose */
-        .rose {
-            position: fixed;
-            bottom: -20px;
-            left: 20px;
-            width: 180px;
-            opacity: 0.25;
-            filter: grayscale(0.5) contrast(1.2) sepia(0.2);
-            z-index: -2;
-            pointer-events: none;
-            transform: rotate(-15deg);
-        }
-
-        /* --- CONTENT --- */
-        .hero { text-align: center; z-index: 10; }
-
-        .tagline {
-            font-size: 0.8rem;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            opacity: 0.6;
-        }
-
-        .name {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 8rem;
-            color: var(--gold);
-            line-height: 0.8;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-            animation: flicker 5s infinite alternate;
-        }
-
-        .roles {
-            font-size: 1.5rem;
-            color: var(--gold);
-            font-style: italic;
-            margin-bottom: 4rem;
-            opacity: 0.8;
-        }
-
-        .location {
-            font-size: 0.75rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #333; /* Very dark/muted */
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        /* --- BUTTON & INK SPLASH --- */
-        .cta-container {
-            position: relative;
-            margin-top: 5rem;
-            display: inline-block;
-        }
-
-        .explore-btn {
-            text-decoration: none;
-            color: var(--silver);
-            padding: 16px 45px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            transition: all 0.5s ease;
-            background: rgba(0,0,0,0.5);
-            display: block;
-        }
-
-        .explore-btn:hover {
-            border-color: var(--gold);
-            color: white;
-            background: rgba(212, 175, 55, 0.05);
-            letter-spacing: 5px;
-        }
-
-        /* Realistic Ink Splash (Visible on hover) */
-        .ink-splash {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            width: 300px;
-            height: auto;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease, transform 0.6s ease;
-            pointer-events: none;
-            filter: brightness(0); /* Make it pure black ink */
-        }
-
-        .cta-container:hover .ink-splash {
-            opacity: 0.6;
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        @keyframes flicker {
-            0%, 100% { opacity: 1; text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-            50% { opacity: 0.92; text-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="paper-layer"></div>
+    <div class="paper-overlay"></div>
     <div class="vignette"></div>
 
-    <!-- Realistic Assets using Direct URLs -->
-    <img src="https://raw.githubusercontent.com/Shambhavi-S-Singh/portfolio-assets/main/raven.png" class="raven" alt="">
+    <img src="raven.png" class="asset raven" alt="Raven">
+    <img src="stain1.png" class="asset stain-top-left" alt="">
+    <img src="stain2.png" class="asset stain-bottom-right" alt="">
     
-    <img src="https://www.pngarts.com/files/1/Coffee-Stain-PNG-Transparent-Image.png" class="stain stain-top" alt="">
-    
-    <img src="https://www.pngarts.com/files/1/Coffee-Stain-PNG-Free-Download.png" class="stain stain-ring" alt="">
-
-    <img src="https://raw.githubusercontent.com/Shambhavi-S-Singh/portfolio-assets/main/rose.png" class="rose" alt="">
-
+    <!-- Forest Dweller Elements -->
+    <img src="rose.png" class="asset rose" alt="">
     <main class="hero">
         <div class="content">
             <p class="tagline">From Forest to Function</p>
@@ -213,13 +29,12 @@
                 <span>Tripura, India</span>
             </div>
 
-            <div class="cta-container">
+            <div class="cta-wrapper">
                 <a href="#" class="explore-btn">Explore the Work ↓</a>
-                <!-- Realistic Ink Splash Asset -->
-                <img src="https://www.pngarts.com/files/4/Ink-Splatter-PNG-Background-Image.png" class="ink-splash">
+                <img src="ink.png" class="ink-splash" alt="">
             </div>
         </div>
     </main>
 
 </body>
-</html> 
+</html>
