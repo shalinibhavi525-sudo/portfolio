@@ -1,19 +1,13 @@
 :root {
     --gold: #d4af37;
     --silver: #b5b5b5;
-    --deep-black: #080808;
-    --paper-tint: rgba(245, 222, 179, 0.03); /* Slight yellowed paper tint */
-    --coffee-brown: rgba(62, 42, 26, 0.4);
+    --bg-color: #0a0a0a; 
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--deep-black);
+    background-color: var(--bg-color);
     color: var(--silver);
     font-family: 'Cormorant Garamond', serif;
     height: 100vh;
@@ -23,118 +17,117 @@ body {
     justify-content: center;
 }
 
-/* --- THE TEXTURE (Realistic Paper) --- */
-.paper-texture {
+.paper-overlay {
     position: fixed;
     inset: 0;
-    z-index: -5;
+    z-index: -10;
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.4; /* Increased opacity to make it visible */
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 .vignette {
     position: fixed;
     inset: 0;
-    z-index: -4;
-    background: radial-gradient(circle, transparent 40%, black 100%);
+    z-index: -9;
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);
 }
 
-/* --- THE RAVEN (Realistic Silhouette) --- */
-.raven-container {
+.asset {
     position: fixed;
-    top: 50px;
-    right: 80px;
-    width: 80px;
-    opacity: 0.6;
-    filter: brightness(0.2);
-    transform: rotate(10deg);
-}
-
-/* --- RUGGED COFFEE STAINS --- */
-.coffee-stain {
-    position: fixed;
-    background: var(--coffee-brown);
-    filter: url(#rugged-edge) blur(2px); /* Makes edges messy */
-    z-index: -3;
     pointer-events: none;
+    z-index: -2;
 }
 
-.stain-1 {
-    top: -50px;
-    left: -50px;
+.raven {
+    top: 30px;
+    right: 40px;
+    width: 220px; 
+    opacity: 0.7;
+    filter: drop-shadow(0 0 15px rgba(192, 192, 192, 0.1)); 
+    transform: rotate(5deg);
+}
+
+.stain-top-left {
+    top: 10%;
+    left: 15%;
+    width: 350px;
+    opacity: 0.5;
+    filter: sepia(1) saturate(1.5) brightness(0.7); /* Forces the brown to pop */
+}
+
+.stain-bottom-right {
+    bottom: -50px;
+    right: -50px;
     width: 300px;
-    height: 280px;
-    border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%; /* Irregular shape */
+    opacity: 0.4;
+    filter: sepia(0.8) brightness(0.6);
 }
 
-.stain-2 {
-    bottom: 5%;
-    right: 15%;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    opacity: 0.2;
-    border: 8px solid var(--coffee-brown); /* Look like a cup ring */
+.rose {
+    bottom: 20px;
+    left: 40px;
+    width: 180px;
+    opacity: 0.4;
+    transform: rotate(-10deg);
 }
 
-/* --- CONTENT STYLING --- */
-.hero {
-    text-align: center;
-    z-index: 10;
-}
+
+.hero { text-align: center; z-index: 10; }
 
 .tagline {
     font-size: 0.8rem;
-    letter-spacing: 6px;
+    letter-spacing: 10px;
     text-transform: uppercase;
     margin-bottom: 1rem;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .name {
     font-family: 'Pinyon Script', cursive;
-    font-size: 7rem; /* Bigger for drama */
+    font-size: 8.5rem;
     color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    line-height: 0.8;
+    text-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+    animation: flicker 4s infinite alternate;
 }
 
 .roles {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: var(--gold);
     font-style: italic;
-    margin-bottom: 3rem;
+    margin-top: 15px;
+    margin-bottom: 50px;
 }
-
-.sep { margin: 0 15px; opacity: 0.5; }
 
 .location {
     font-size: 0.75rem;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    color: #444; /* Muted grey */
+    color: #444; /* Stamped look */
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
-/* --- BUTTON & INK --- */
-.cta-area {
+.cta-wrapper {
     position: relative;
-    margin-top: 4rem;
+    margin-top: 60px;
     display: inline-block;
 }
 
 .explore-btn {
     text-decoration: none;
     color: var(--silver);
-    padding: 12px 35px;
-    border: 1px solid rgba(181, 181, 181, 0.2);
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    transition: 0.4s;
-    background: rgba(0,0,0,0.2);
+    padding: 18px 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+    letter-spacing: 4px;
+    transition: 0.5s;
+    background: rgba(0,0,0,0.7);
+    display: block;
+    position: relative;
+    z-index: 5;
 }
 
 .explore-btn:hover {
@@ -143,21 +136,24 @@ body {
     background: rgba(212, 175, 55, 0.05);
 }
 
-/* INK SPLATTERS (Hover Only) */
-.ink-splatter {
+.ink-splash {
     position: absolute;
-    background: #000;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    transform: translate(-50%, -50%) scale(0.6);
     opacity: 0;
-    transition: 0.3s;
-    filter: url(#rugged-edge);
+    transition: 0.7s ease;
+    z-index: -1;
+    filter: brightness(0.2); /* Keeps ink dark */
 }
 
-.splatter-1 { top: -10px; left: 20%; width: 4px; height: 4px; }
-.splatter-2 { bottom: -5px; right: 10%; width: 8px; height: 8px; }
+.cta-wrapper:hover .ink-splash {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+}
 
-.cta-area:hover .ink-splatter {
-    opacity: 0.7;
+@keyframes flicker {
+    0%, 100% { opacity: 1; text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+    50% { opacity: 0.94; text-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
 }
