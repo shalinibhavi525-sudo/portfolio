@@ -71,21 +71,33 @@
         </div>
     </section>
     
-    <section id="projects" class="project-section">
-        <a href="#lab" class="back-btn">← Back</a>
-        
-        <div class="work-intro">
-            <h2 class="project-title">THE WORK</h2>
-            <p class="work-manifesto">
-                Engineering solutions at the intersection of primitive constraints and modern computation. 
-                The following artifacts represent a commitment to rigor, even in the heart of the forest.
+    <section id="work" class="work-gateway-section">
+    <div class="work-container">
+        <h2 class="work-title">WORK</h2>
+        <div class="work-content">
+            <p class="work-subtitle">Engineering solutions for the modern frontier.</p>
+            <p class="work-description">
+                From real-time fact-checking protocols to low-bandwidth development environments, 
+                my work focuses on high-impact utility in adversarial conditions.
             </p>
+            <button id="exploreWorkBtn" class="explore-btn">EXPLORE THE COLLECTION</button>
         </div>
+    </div>
 
-        <div class="project-grid">
+    <div id="projectGridWrapper" class="project-grid-overlay">
+        <div class="forest-bg"></div> <button class="exit-grid" onclick="hideProjectGrid()">← BACK</button>
+        
+        <div class="project-grid" id="projectGrid">
             </div>
-    </section>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+    </div>
+
+    <div id="subpage" class="subpage-overlay">
+        <button class="close-subpage" onclick="closeProject()">← RETURN TO COLLECTION</button>
+        <div class="subpage-content">
+            <img src="leaf.png" class="deco-leaf leaf-1" alt="">
+            <img src="leaf.png" class="deco-leaf leaf-2" alt="">
+            <div id="projectDetail" class="typewriter-box">
+                </div>
+        </div>
+    </div>
+</section>
