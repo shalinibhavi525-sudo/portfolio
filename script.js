@@ -1,46 +1,161 @@
+// Smooth scroll for ALL links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetElement = document.querySelector(this.getAttribute('href'));
         if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
+
+// FULL PROJECT DATA
 const projectsData = {
-    "VERITAS": { tag: "Truth Protocol", tech: "DistilBERT, ONNX", info: "23ms latency. Offline inference." },
-    "EdgeDev": { tag: "Hardened IDE", tech: "VS Code API", info: "Saves 80MB data per session." },
-    "Bhai-Lang": { tag: "Hinglish Programming", tech: "Python", info: "Hinglish syntax with roast debugging." },
-    "Calyx": { tag: "Memory Harvest", tech: "NLP Graph", info: "Mapping thoughts in the forest lab." },
-    "Echo_Aid": { tag: "Speech Companion", tech: "Sentiment AI", info: "Offline emotion tracking." },
-    "Border Incident Reporter": { tag: "Security Logger", tech: "Flask, GPS", info: "Instant logging for border units." },
-    "Safe_Steps": { tag: "Disaster Route", tech: "Leaflet, Weather API", info: "Emergency shelter finder." },
-    "Project Parichay": { tag: "Worker ID", tech: "PWA, QR", info: "ID generation for informal workers." }
+    "VERITAS": {
+        tagline: "Decentralized, Offline-First Misinformation Detection for the Edge",
+        challenge: "In high-latency environments (like rural India or 3G networks), traditional cloud-based fact-checking is too slow (>1000ms), compromises user privacy by sending browsing data to central servers, and is inaccessible to 450M+ Indians lacking high-speed internet.",
+        architecture: "Veritas moves the intelligence from the Cloud to the Client. I optimized a DistilBERT Transformer model specifically for browser-based inference. By implementing Dynamic Int8 Quantization and leveraging the ONNX Runtime, I reduced the model size from ~400MB to 64.45MB without losing server-grade accuracy.",
+        highlights: [
+            "Ultra-Low Latency: Achieved ~23ms CPU inference locally, making it 20x faster than cloud API calls.",
+            "Privacy-Centric: Zero Egress—no user data ever leaves the local environment.",
+            "Web-Native Inference: Built using transformers.js for seamless integration into a production browser extension."
+        ],
+        tech: "DistilBERT, ONNX, Transformers.js, Optimum, JavaScript"
+    },
+    "EdgeDev": {
+        tagline: "Architectural Hardening for the Digital Frontier",
+        story: "Forged in the Teliamura Reserved Forest (Tripura, India), this project was built for developers operating under 'Adversarial Network Conditions.' It addresses extreme scarcity: 4G mobile hotspots, daily power grid cycles, and a strict 2GB daily data limit.",
+        solution: "EdgeDev is a bespoke hardening protocol for VS Code. It silences the 'telemetric noise' of modern IDEs to preserve the most limited resource: Bandwidth.",
+        highlights: [
+            "Bandwidth Integrity: Hard-disables background telemetry, non-consensual extension updates, and automatic TypeScript type acquisition.",
+            "Git Fetch Suppression: Prevents background repository polling to stop 'hidden' data leaks.",
+            "The Academic Palette: Custom high-contrast theme (Espresso/Deep Black) designed specifically to reduce visual noise and minimize power draw on battery reserves.",
+            "Efficiency: Saves ~50MB - 80MB of data per coding session."
+        ],
+        tech: "VS Code Extension API, CSS (Custom Theming), System-level Network Protocols"
+    },
+    "Bhai-Lang": {
+        tagline: "A Hinglish Programming Language for Desi Developers",
+        concept: "Writing print() is too mainstream. Built on the idea that 'Bhai, code toh aise likhte hain!', this project creates a relatable coding experience for developers who think in Hinglish.",
+        logic: "Built as an interpreter in Python, it maps traditional logic to local Indian slang, making it the only language where bhai bol('Namaste, duniya!'); is valid syntax.",
+        highlights: [
+            "Custom Syntax Tree: Implements standard loops (jab tak bhai), variables (bhai ye hai), and entry points (hi bhai).",
+            "Roast-Driven Error Messages: Features a 'Loving Roast' system for debugging (e.g., 'Maths class mein soye the kya?' for division by zero).",
+            "Functionality: Supports Fibonacci sequences, FizzBuzz challenges, and basic calculators."
+        ],
+        tech: "Python (Core Interpreter), Git, Regex"
+    },
+    "Calyx": {
+        tagline: "The Augmented Intelligence Harvest Layer",
+        concept: "'The human mind is a garden. Calyx is the soil.' This is a local prototype for an 'Augmented Intelligence' system that treats memory as a network of connections rather than a list of files.",
+        architecture: "It uses a local Reflection Engine to process your thoughts and notes, mapping them into a persistent Insight Graph to reveal connections you didn't know existed.",
+        highlights: [
+            "Semantic Memory: Builds an evolving memory of connections by analyzing the intent and emotional tone of user inputs.",
+            "Smart Concept Retrieval: Search your knowledge base by concept or mood rather than exact keywords.",
+            "Modular Storage: Uses user_knowledge.json and insights_store.json for lightweight, non-relational local data management."
+        ],
+        tech: "Python, Streamlit, NLP Intent Parser, Custom Insight Graph Engine"
+    },
+    "Echo_Aid": {
+        tagline: "Real-Time Emotion-Aware Speech Companion",
+        purpose: "An 'AI that listens between the lines.' Echo_Aid is a mental wellness tool designed to help users recognize their own patterns of stress and vocal tone in real-time.",
+        logic: "Built to work fully offline to respect user privacy, the app listens to your voice and classifies emotional states (calm, anxious, happy, tired) to provide gentle textual feedback.",
+        highlights: [
+            "Real-time Transcription: Uses a local voice_listener.py to capture and process audio streams instantly.",
+            "Sentiment Trends: Visualizes emotional patterns over time using a dedicated mood_tracker.py.",
+            "Empathetic UX: Responds with encouraging feedback like 'Your tone feels calmer today' to promote mindful communication."
+        ],
+        tech: "Python, Streamlit, speech_recognition, Sentiment Analysis Modules"
+    },
+    "Border Incident Reporter": {
+        tagline: "Real-Time Incident Logging for Security Personnel",
+        solution: "A high-speed incident logging system designed for border security personnel to track breaches and suspicious activities under pressure. The goal was to ensure reporting could happen in under 30 seconds.",
+        highlights: [
+            "GPS Auto-Capture: Automatic location tagging for all reports to ensure accurate field intelligence.",
+            "Intermittent Sync: Features offline capability to ensure logs are saved even when connection to the command center is lost.",
+            "Severity Management: Categorizes events from Low to Critical with photo evidence attachments.",
+            "Data Export: Generates CSV reports and visualizes incidents on a real-time command center dashboard using Leaflet.js."
+        ],
+        tech: "Flask (Backend), SQLite/PostgreSQL, Leaflet.js, Vanilla JavaScript"
+    },
+    "Safe_Steps": {
+        tagline: "Disaster Route Finder & Emergency Shelter Locator",
+        problem: "During floods or storms, information overload is dangerous. SafeSteps proves that clean design and focused APIs can turn chaotic data into calm, useful guidance.",
+        solution: "A browser-based app that combines real-time weather alerts with a map-based shelter locator, requiring no login or setup for users in crisis.",
+        highlights: [
+            "API Resilience: Includes an offline fallback message if the weather API is unreachable.",
+            "Dynamic Map Layers: Uses Leaflet.js to overlay real-time disaster zones with static shelter markers.",
+            "One-Click Alerting: Fetches local weather messages instantly based on the user's city input."
+        ],
+        tech: "HTML5, CSS3, JavaScript, Leaflet.js, OpenWeatherMap API"
+    },
+    "Project Parichay": {
+        tagline: "Offline ID Generator for Informal Workers",
+        impact: "Millions of informal workers lack formal identification. Project Parichay allows them to generate and print professional ID cards containing their photo, occupation, and a vital emergency QR code.",
+        logic: "Works entirely offline through PWA caching and localStorage, ensuring utility in areas with zero internet coverage.",
+        highlights: [
+            "Smart QR Integration: Encodes contact and job information directly into a scannable QR code on the card.",
+            "Print-Optimized: Features an auto-generated, CSS-formatted layout ready for immediate printing.",
+            "Data Persistence: Uses IndexedDB/localStorage to keep worker profiles stored locally on the device."
+        ],
+        tech: "HTML5, CSS3, JavaScript, QRCode.js"
+    }
 };
 
-// Generate the 8 cards
+// Generate the 8 project cards with alternating ferns
 const grid = document.getElementById('projectGrid');
-Object.keys(projectsData).forEach(name => {
+const ferns = ['fern%201.png', 'fern%202.png'];
+
+Object.keys(projectsData).forEach((name, index) => {
     const card = document.createElement('div');
     card.className = 'photocard';
-    card.style.transform = `rotate(${(Math.random() * 4 - 2).toFixed(2)}deg)`;
+    
+    // Add fern decoration (alternating)
+    const fern = document.createElement('img');
+    fern.src = ferns[index % 2];
+    fern.className = 'card-fern';
+    fern.classList.add(index % 2 === 0 ? 'fern-left' : 'fern-right');
+    
     card.innerHTML = `<div class="card-title">${name}</div>`;
+    card.appendChild(fern);
+    
     card.onclick = () => openProject(name);
     grid.appendChild(card);
 });
 
+// Open project detail subpage
 function openProject(name) {
-    const p = projectsData[name];
-    document.getElementById('projectDetail').innerHTML = `
-        <h1 style="color:#d4af37; font-family:'Playfair Display';">${name}</h1>
-        <p><strong>[STACK]:</strong> ${p.tech}</p>
-        <p style="margin-top:20px;">${p.info}</p>
+    const project = projectsData[name];
+    
+    let content = `
+        <h1>${name}</h1>
+        <h2>${project.tagline}</h2>
     `;
+    
+    // Add all available fields
+    for (let [key, value] of Object.entries(project)) {
+        if (key === 'tagline') continue; // Already shown as h2
+        
+        if (key === 'highlights' && Array.isArray(value)) {
+            content += `<p><strong>[${key.toUpperCase()}]</strong></p>`;
+            value.forEach(item => {
+                content += `<p>• ${item}</p>`;
+            });
+        } else if (key === 'tech') {
+            content += `<p><strong>[TECH STACK]:</strong> ${value}</p>`;
+        } else {
+            content += `<p><strong>[${key.toUpperCase()}]:</strong> ${value}</p>`;
+        }
+    }
+    
+    document.getElementById('projectDetail').innerHTML = content;
     document.getElementById('subpage').style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
+// Close project subpage
 function closeProject() {
     document.getElementById('subpage').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
