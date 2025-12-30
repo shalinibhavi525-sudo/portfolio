@@ -6,85 +6,62 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* LOCK MAIN VIEWPORT */
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden; 
+/* Restoring your original body/html behavior */
+body {
     background-color: var(--bg-charcoal);
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
 }
 
-/* SECTION INDEPENDENT SCROLLING */
-section {
-    width: 100vw;
-    height: 100vh;
+/* VIBRANT FOREST BACKGROUND FIX */
+.projects-grid-section {
+    background: url('background.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    /* Lowered opacity of the dark overlay to let the green pop */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2); 
+}
+
+/* Original Card Styles */
+.photocard {
+    aspect-ratio: 4/5;
+    background: white;
+    border: 12px solid #fff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    overflow-y: auto; /* Internal scroll only */
-    padding-top: 80px;
-}
-
-/* --- LAB SECTION --- */
-.lab-section { background-color: #9d7e5f; }
-.journal-wrapper { position: relative; width: 85%; max-width: 480px; z-index: 10; }
-
-/* Flower on bottom left of the actual paper */
-.baby-breath-lab { 
-    position: absolute; 
-    bottom: -15px; 
-    left: -20px; 
-    width: 140px; 
-    z-index: 20; 
-}
-
-/* --- PROJECTS SECTION --- */
-.projects-grid-section {
-    background: url('background.jpg') center/cover no-repeat fixed;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 40px;
-    width: 90%;
-    max-width: 1200px;
-}
-
-.photocard {
-    aspect-ratio: 4/5; background: white; border: 12px solid #fff;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6); cursor: pointer;
-    position: relative; display: flex; align-items: center; justify-content: center;
+    justify-content: center;
 }
 
 .card-image-layer {
-    position: absolute; inset: 0; background: url('card.png') center/cover;
-    filter: blur(1.5px) brightness(0.8); z-index: 1;
+    position: absolute;
+    inset: 0;
+    background: url('card.png') center/cover;
+    filter: blur(2px) brightness(0.8);
+    z-index: 1;
 }
 
-/* NEWSPAPER STYLE GREEN TEXT */
+/* NEWSPAPER STYLE GREEN TEXT ON CARDS */
 .card-title {
-    position: relative; z-index: 10;
-    color: #023020; /* Dark Green */
+    position: relative;
+    z-index: 10;
+    color: #023020;
     font-family: 'Playfair Display', serif;
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.8);
     padding: 10px 15px;
     border: 1px solid #023020;
-    text-align: center;
 }
 
-/* Ferns sticking out from corners */
-.card-fern {
-    position: absolute; width: 80px; z-index: 15; pointer-events: none;
-}
-
-/* --- SUBPAGE (ROCKY GREY) --- */
+/* SUBPAGE (ROCKY GREY) */
 .subpage-overlay {
-    position: fixed; inset: 0; z-index: 9999;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
     display: none;
     background: #2a2a2a url('https://www.transparenttextures.com/patterns/dark-rock.png');
     overflow-y: auto;
@@ -92,14 +69,11 @@ section {
 }
 
 .typewriter-box {
-    max-width: 800px; margin: 40px auto;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 60px; border: 1px solid var(--gold);
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 60px;
+    border: 1px solid var(--gold);
     font-family: 'Courier Prime', monospace;
-    color: var(--gold); /* TEXT IS GOLD */
-    line-height: 1.6;
-}
-
-.subpage-leaf {
-    position: fixed; width: 45px; opacity: 0.4; pointer-events: none;
+    color: var(--gold);
 }
