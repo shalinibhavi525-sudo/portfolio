@@ -71,33 +71,37 @@
         </div>
     </section>
     
-    <section id="work" class="work-gateway-section">
-    <div class="work-container">
-        <h2 class="work-title">WORK</h2>
-        <div class="work-content">
-            <p class="work-subtitle">Engineering solutions for the modern frontier.</p>
-            <p class="work-description">
+    <section id="work-intro" class="work-intro-section">
+    <div class="intro-container">
+        <h2 class="section-big-title">WORK</h2>
+        <div class="intro-box">
+            <p class="intro-subtitle">Engineering solutions for the modern frontier.</p>
+            <p class="intro-text">
                 From real-time fact-checking protocols to low-bandwidth development environments, 
                 my work focuses on high-impact utility in adversarial conditions.
             </p>
-            <button id="exploreWorkBtn" class="explore-btn">EXPLORE THE COLLECTION</button>
+            <a href="#projects-collection" class="view-collection-btn">VIEW COLLECTION ↓</a>
         </div>
     </div>
+</section>
 
-    <div id="projectGridWrapper" class="project-grid-overlay">
-        <div class="forest-bg"></div> <button class="exit-grid" onclick="hideProjectGrid()">← BACK</button>
+<section id="projects-collection" class="projects-grid-section">
+    <div class="forest-bg-layer"></div> 
+    
+    <div class="grid-container">
+        <div class="grid-header">
+            <span class="archive-tag">FIELD ARCHIVE: 08_PROJECTS</span>
+        </div>
         
         <div class="project-grid" id="projectGrid">
             </div>
     </div>
 
     <div id="subpage" class="subpage-overlay">
-        <button class="close-subpage" onclick="closeProject()">← RETURN TO COLLECTION</button>
-        <div class="subpage-content">
-            <img src="leaf.png" class="deco-leaf leaf-1" alt="">
-            <img src="leaf.png" class="deco-leaf leaf-2" alt="">
-            <div id="projectDetail" class="typewriter-box">
-                </div>
-        </div>
+        <div class="rocky-bg"></div>
+        <button class="close-subpage" onclick="closeProject()">[ BACK TO ARCHIVE ]</button>
+        <img src="leaf.png" class="deco-leaf leaf-1" alt="">
+        <img src="leaf.png" class="deco-leaf leaf-2" alt="">
+        <article id="projectDetail" class="typewriter-box"></article>
     </div>
 </section>
