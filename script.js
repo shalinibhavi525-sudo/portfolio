@@ -1,10 +1,8 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute('href'));
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -101,46 +99,31 @@ const projectsData = {
 };
 
 const grid = document.getElementById('projectGrid');
-const ferns = ['fern%201.png', 'fern%202.png'];
-
-Object.keys(projectsData).forEach((name, index) => {
+Object.keys(projectsData).forEach(name => {
     const card = document.createElement('div');
     card.className = 'photocard';
-    const imgLayer = document.createElement('div');
-    imgLayer.className = 'card-image-layer';
-    const fern = document.createElement('img');
-    fern.src = ferns[index % 2];
-    fern.className = 'card-fern';
-    fern.style.position = "absolute"; fern.style.width = "80px"; fern.style.zIndex = "5";
-    if(index % 2 === 0) { fern.style.left = "-20px"; fern.style.bottom = "40px"; } 
-    else { fern.style.right = "-20px"; fern.style.bottom = "40px"; fern.style.transform = "scaleX(-1)"; }
-    card.innerHTML = `<div class="card-title">${name}</div>`;
-    card.prepend(imgLayer);
-    card.appendChild(fern);
+    card.innerHTML = `<div class="card-image-layer"></div><div class="card-title">${name}</div>`;
     card.onclick = () => openProject(name);
     grid.appendChild(card);
 });
 
 function openProject(name) {
-    const project = projectsData[name];
-    let content = `<h1>${name}</h1><h2>${project.tagline}</h2>`;
-    for (let [key, value] of Object.entries(project)) {
-        if (key === 'tagline') continue;
-        if (key === 'highlights' && Array.isArray(value)) {
-            content += `<p><strong>[${key.toUpperCase()}]</strong></p>`;
-            value.forEach(item => { content += `<p>• ${item}</p>`; });
-        } else if (key === 'tech') {
-            content += `<p><strong>[TECH STACK]:</strong> ${value}</p>`;
+    const p = projectsData[name];
+    const overlay = document.getElementById('subpage');
+    const detail = document.getElementById('projectDetail');
+    
+    let html = `<h1 style="color:var(--gold)">> ${name}</h1><br>`;
+    for (let key in p) {
+        if (key === 'highlights') {
+            html += `<p><strong>[HIGHLIGHTS]:</strong></p>`;
+            p[key].forEach(h => html += `<p>• ${h}</p>`);
         } else {
-            content += `<p><strong>[${key.toUpperCase()}]:</strong> ${value}</p>`;
+            html += `<p><strong>[${key.toUpperCase()}]:</strong> ${p[key]}</p><br>`;
         }
     }
-    document.getElementById('projectDetail').innerHTML = content;
-    document.getElementById('subpage').style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    detail.innerHTML = html;
+    overlay.style.display = 'block';
+    overlay.scrollTop = 0;
 }
 
-function closeProject() {
-    document.getElementById('subpage').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
+function closeProject() { document.getElementById('subpage').style.display = 'none'; }
