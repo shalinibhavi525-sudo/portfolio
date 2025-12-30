@@ -1,111 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shambhavi Singh | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Pinyon+Script&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    
-    <section class="hero-section" id="hero">
-        <div class="paper-grain"></div>
-        <div class="vignette"></div>
-        
-        <img src="coffee%20stain%201.png" class="asset stain-top-left" alt="">
-        <img src="coffee%20stain%202.png" class="asset stain-bottom-right" alt="">
-        <img src="raven.png" class="asset raven" alt="">
-        <img src="rose%201.png" class="asset rose-hero" alt="">
-        
-        <div class="hero">
-            <p class="tagline">From Forest to Function</p>
-            <h1 class="name">Shambhavi Singh</h1>
-            <p class="roles">Builder &bull; Researcher &bull; Forest Dweller</p>
-            <div class="location">
-                <p>Teliamura Reserved Forest</p>
-                <p>Tripura, India</p>
-            </div>
-            <div class="cta-wrapper">
-                <a href="#lab" class="explore-btn">Explore the Work ↓</a>
-                <img src="ink.png" class="ink-hover" alt="">
-            </div>
-        </div>
-    </section>
-    
-    <section id="lab" class="lab-section">
-        <a href="#hero" class="back-btn">← Back</a>
-        
-        <div class="journal-wrapper">
-            <img src="burnt%20paper.png" class="journal-page" alt="">
-            <img src="flower.png" class="baby-breath-lab" alt="">
-            
-            <div class="journal-content">
-                <h2 class="journal-header">THE LABORATORY</h2>
-                <p class="journal-date">30 December 2025</p>
-                
-                <div class="journal-text">
-                    <p>My lab isn't in MIT's corridors. It's deep in Teliamura Reserved Forest—a BSF base where monkeys watch me code and monsoons test my internet.</p>
-                    <p style="margin-top: 15px;">
-                        8 projects deployed.<br>
-                        1 research paper published.<br>
-                        7 open source contributions merged.<br>
-                        Zero excuses made.
-                    </p>
-                    <p style="margin-top: 15px;">I don't wait for perfect conditions. I create despite imperfect ones.</p>
-                    <p style="font-style: italic; font-size: 1.3rem; margin-top: 15px;">
-                        This is where function meets forest.<br>
-                        This is where I build.
-                    </p>
-                </div>
-                <div class="journal-signature">Shambhavi Singh</div>
-            </div>
-        </div>
-        
-        <div class="lab-cta-wrapper">
-            <a href="#work-intro" class="lab-continue-btn">View the Work ↓</a>
-            <img src="ink.png" class="lab-ink-hover" alt="">
-        </div>
-    </section>
-    
-    <section id="work-intro" class="work-intro-section">
-        <a href="#lab" class="back-btn" style="color: #d4af37; border-color: rgba(212, 175, 55, 0.3);">← Back</a>
-        
-        <h2 class="section-big-title">WORK</h2>
-        
-        <div class="intro-container">
-            <div class="intro-box">
-                <p class="intro-subtitle">Engineering solutions for the modern frontier.</p>
-                <p class="intro-text">
-                    From real-time fact-checking protocols to low-bandwidth development environments, 
-                    my work focuses on high-impact utility in adversarial conditions.
-                </p>
-                <a href="#projects-collection" class="view-collection-btn">VIEW COLLECTION ↓</a>
-            </div>
-        </div>
-    </section>
+<!-- HERO SECTION -->
+<section id="hero" class="active">
+    <!-- Decorative Assets -->
+    <img src="coffee stain 1.png" class="asset stain-top-left" alt="">
+    <img src="raven.png" class="asset raven-top-right" alt="">
+    <img src="rose 1.png" class="asset rose-bottom-left" alt="">
+    <img src="coffee stain 2.png" class="asset stain-bottom-mid" alt="">
 
-    <section id="projects-collection" class="projects-grid-section">
-        <div class="forest-bg-layer"></div>
-        <a href="#work-intro" class="back-btn-projects">← BACK</a>
+    <div class="hero-content">
+        <h2 class="hero-title">From Forest to Function</h2>
         
-        <div class="grid-container">
-            <div class="grid-header">
-                <span class="archive-tag">FIELD ARCHIVE: 08_PROJECTS</span>
-            </div>
-            <div class="project-grid" id="projectGrid"></div>
+        <!-- Your Name in Gold Cursive -->
+        <h1 id="hero-name" class="gold-text">Shambhavi Singh</h1>
+        
+        <!-- Tags in Silver -->
+        <p class="silver-text">builder • researcher • forest dweller</p>
+        
+        <!-- The Explore Button -->
+        <div class="button-wrapper">
+            <button id="explore-btn" class="ink-button" onclick="showSection('lab')">Explore</button>
         </div>
-    </section>
-
-    <div id="subpage" class="subpage-overlay">
-        <div class="rocky-bg"></div>
-        <button class="close-subpage" onclick="closeProject()">[ BACK TO ARCHIVE ]</button>
-        <img src="leaf.png" class="deco-leaf leaf-1" alt="">
-        <img src="leaf.png" class="deco-leaf leaf-2" alt="">
-        <img src="leaf.png" class="deco-leaf leaf-3" alt="">
-        <article id="projectDetail" class="typewriter-box"></article>
     </div>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+</section>
