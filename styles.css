@@ -172,29 +172,28 @@ body {
     position: relative;
     min-height: 100vh;
     width: 100%;
-    background-color: #1c120d;
+    background-color: var(--leather);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 0;
-    z-index: 20;
+    padding: 80px 0;
 }
 
 .journal-wrapper {
     position: relative;
     width: 90%;
-    max-width: 850px;
+    max-width: 750px;
 }
 
 .journal-page {
     width: 100%;
     display: block;
-    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.8));
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
 }
 
 .journal-content {
     position: absolute;
-    top: 12%;
+    top: 10%;
     left: 12%;
     right: 12%;
     color: #2d1e12;
@@ -202,45 +201,42 @@ body {
 
 .journal-header {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    letter-spacing: 3px;
-    margin-bottom: 5px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
 }
 
 .journal-date {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-style: italic;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     opacity: 0.7;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    display: inline-block;
 }
 
 .journal-text {
     font-family: 'Homemade Apple', cursive;
-    font-size: 0.9rem;
-    line-height: 1.9;
+    font-size: 0.85rem;
+    line-height: 1.7;
 }
 
 .journal-signature {
     margin-top: 20px;
     font-family: 'Pinyon Script', cursive;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
 }
 
 .baby-breath {
-    bottom: -60px;
-    left: -80px;
-    width: 380px;
-    z-index: 30;
+    bottom: -40px;
+    left: -60px;
+    width: 300px;
+    z-index: 5;
     transform: rotate(10deg);
 }
 
 .ink-blot {
-    top: 20px;
-    right: 20px;
-    width: 140px;
+    top: 10px;
+    right: 10px;
+    width: 120px;
     filter: brightness(0);
-    opacity: 0.7;
-    z-index: 25;
+    opacity: 0.6;
 }
