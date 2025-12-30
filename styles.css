@@ -2,14 +2,17 @@
     --gold: #d4af37;
     --silver: #b5b5b5;
     --bg-charcoal: #0a0a0a;
-    --leather-brown: #4a3728; 
+    --leather-brown: #8b7355;  /* LIGHTER BROWN! */
 }
 
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    scroll-behavior: smooth; 
+}
+
+html {
+    scroll-behavior: smooth;  /* Smooth scroll! */
 }
 
 html, body {
@@ -19,10 +22,13 @@ html, body {
 
 section {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;  /* min-height instead of height! */
     position: relative;
-    overflow: hidden;
 }
+
+/* ================================
+   HERO SECTION (Same as before)
+   ================================ */
 
 .paper-grain {
     position: absolute;
@@ -38,6 +44,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;  /* Full height for hero */
 }
 
 .vignette {
@@ -103,6 +110,7 @@ section {
     text-transform: uppercase;
     margin-bottom: 1rem;
     opacity: 0.6;
+    color: var(--silver);
 }
 
 .roles {
@@ -138,6 +146,13 @@ section {
     display: block;
     position: relative;
     z-index: 10;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+    color: var(--gold);
+    border-color: rgba(212, 175, 55, 0.3);
 }
 
 .ink-hover {
@@ -156,76 +171,123 @@ section {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
+/* ================================
+   LAB SECTION - FIXED!
+   ================================ */
+
 .lab-section {
-    background-color: var(--leather-brown);
+    background-color: var(--leather-brown);  /* Lighter brown now! */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 80px 20px;  /* Add padding! */
+    min-height: 100vh;
 }
 
 .journal-wrapper {
     position: relative;
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
     z-index: 10;
 }
 
 .journal-page {
     width: 100%;
+    height: auto;
     display: block;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
 }
 
 .journal-content {
     position: absolute;
-    top: 10%;
-    left: 12%;
-    right: 12%;
+    top: 12%;
+    left: 15%;
+    right: 15%;
+    bottom: 10%;
     color: #2d1e12;
 }
 
 .journal-header {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    letter-spacing: 3px;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
     margin-bottom: 5px;
+    font-weight: 600;
+    color: #1a0f08;
 }
 
 .journal-date {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-style: italic;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     opacity: 0.7;
+    color: #3d2817;
 }
 
 .journal-text {
-    font-family: 'Homemade Apple', cursive;
-    font-size: 0.95rem;
-    line-height: 2;
+    font-family: 'Caveat', cursive;  /* BETTER handwritten font! */
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #2d1e12;
+}
+
+.journal-text p {
+    margin-bottom: 12px;
 }
 
 .journal-signature {
-    margin-top: 30px;
+    margin-top: 40px;
     font-family: 'Pinyon Script', cursive;
-    font-size: 2.8rem;
+    font-size: 3.5rem;
+    color: #1a0f08;
+    text-align: right;
 }
 
+/* FIXED: Flower stays in lab section only! */
 .baby-breath-lab {
     position: absolute;
-    bottom: -40px;
-    left: -80px;
-    width: 320px;
+    bottom: -30px;
+    left: -60px;
+    width: 280px;
     z-index: 20;
     transform: rotate(10deg);
 }
 
+/* FIXED: Ink blot stays in lab section! */
 .ink-blot-lab {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 150px;
-    filter: brightness(0);
-    opacity: 0.6;
+    top: 30px;
+    right: 30px;
+    width: 130px;
+    filter: brightness(0.2);
+    opacity: 0.4;
     z-index: 15;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 768px) {
+    .name {
+        font-size: 4rem;
+    }
+    
+    .journal-header {
+        font-size: 1.8rem;
+    }
+    
+    .journal-text {
+        font-size: 1.1rem;
+    }
+    
+    .journal-signature {
+        font-size: 2.5rem;
+    }
+    
+    .baby-breath-lab {
+        width: 180px;
+        left: -40px;
+    }
 }
