@@ -1,8 +1,8 @@
+// Navigation Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -99,31 +99,57 @@ const projectsData = {
 };
 
 const grid = document.getElementById('projectGrid');
-Object.keys(projectsData).forEach(name => {
+const fernAssets = ['fern 1.png', 'fern 2.png'];
+
+Object.keys(projectsData).forEach((name, index) => {
     const card = document.createElement('div');
     card.className = 'photocard';
-    card.innerHTML = `<div class="card-image-layer"></div><div class="card-title">${name}</div>`;
+    
+    // Add Fern sticking out
+    const fern = document.createElement('img');
+    fern.src = fernAssets[index % 2];
+    fern.className = 'card-fern';
+    if(index % 2 === 0) { fern.style.left = "-30px"; fern.style.top = "20px"; } 
+    else { fern.style.right = "-30px"; fern.style.bottom = "20px"; fern.style.transform = "rotate(90deg)"; }
+
+    card.innerHTML = `
+        <div class="card-image-layer"></div>
+        <div class="card-title">${name}</div>
+    `;
+    card.appendChild(fern);
     card.onclick = () => openProject(name);
     grid.appendChild(card);
 });
 
 function openProject(name) {
-    const p = projectsData[name];
+    const project = projectsData[name];
     const overlay = document.getElementById('subpage');
     const detail = document.getElementById('projectDetail');
     
-    let html = `<h1 style="color:var(--gold)">> ${name}</h1><br>`;
-    for (let key in p) {
+    // Start at top of box
+    overlay.scrollTop = 0;
+
+    let html = `<h1 style="color:#d4af37">> ${name.toUpperCase()}</h1><br>`;
+    html += `<p style="font-style:italic; font-size:1.2rem;">"${project.tagline}"</p><br>`;
+    
+    for (let [key, value] of Object.entries(project)) {
+        if (key === 'tagline') continue;
         if (key === 'highlights') {
-            html += `<p><strong>[HIGHLIGHTS]:</strong></p>`;
-            p[key].forEach(h => html += `<p>• ${h}</p>`);
+            html += `<p><strong>[FIELD NOTES]:</strong></p>`;
+            value.forEach(item => html += `<p>• ${item}</p>`);
+            html += `<br>`;
         } else {
-            html += `<p><strong>[${key.toUpperCase()}]:</strong> ${p[key]}</p><br>`;
+            html += `<p><strong>[${key.toUpperCase()}]:</strong> ${value}</p><br>`;
         }
     }
+    
+    // Add Signature at bottom of TEXT
+    html += `<div style="font-family:'Pinyon Script'; font-size:2rem; text-align:right; margin-top:20px;">Shambhavi Singh</div>`;
+
     detail.innerHTML = html;
     overlay.style.display = 'block';
-    overlay.scrollTop = 0;
 }
 
-function closeProject() { document.getElementById('subpage').style.display = 'none'; }
+function closeProject() {
+    document.getElementById('subpage').style.display = 'none';
+}
