@@ -22,16 +22,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Optional: Prevent wheel/touch scroll between sections
-    // Uncomment if you want STRICT no-scroll enforcement
-    /*
-    document.body.addEventListener('wheel', function(e) {
-        e.preventDefault();
-    }, { passive: false });
-    
-    document.body.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    }, { passive: false });
-    */
 });
+
