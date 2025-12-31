@@ -1,78 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shambhavi Singh | From Forest to Function</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts: Pinyon Script (Cursive), EB Garamond & Cormorant (Academic) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&family=Special+Elite&display=swap" rel="stylesheet">
-</head>
-<body>
+<section id="hero" class="section active">
+    <!-- The Texture Overlay -->
+    <div class="stardust-texture"></div>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="section active">
-        <img src="coffee stain 1.png" class="asset stain-top-left" alt="">
-        <img src="raven.png" class="asset raven-top-right" alt="">
-        <img src="rose 1.png" class="asset rose-bottom-left" alt="">
-        <img src="coffee stain 2.png" class="asset stain-bottom-mid" alt="">
+    <!-- Decorative Assets -->
+    <img src="coffee stain 1.png" class="asset stain-top-left" alt="">
+    <img src="raven.png" class="asset raven-top-right" alt="">
+    <img src="rose 1.png" class="asset rose-bottom-left" alt="">
+    <img src="coffee stain 2.png" class="asset stain-bottom-mid" alt="">
 
-        <div class="hero-content">
-            <h2 class="hero-title">From Forest to Function</h2>
-            <h1 id="hero-name" class="name-text">Shambhavi Singh</h1>
-            <p class="silver-tag-text">builder • researcher • forest dweller</p>
-            
-            <div class="button-container">
-                <div class="ink-splash"></div>
-                <button id="explore-btn" class="ink-button" onclick="showSection('lab')">Explore</button>
-            </div>
+    <div class="hero-content">
+        <h2 class="hero-title">From Forest to Function</h2>
+        
+        <!-- Name in Gold with enough space for the 'g' -->
+        <h1 id="hero-name" class="name-text gold-metallic">Shambhavi Singh</h1>
+        
+        <p class="silver-tag-text">builder • researcher • forest dweller</p>
+        
+        <div class="button-container">
+            <div class="ink-splash"></div>
+            <button id="explore-btn" class="ink-button gold-accent">Explore</button>
         </div>
-    </section>
-
-    <!-- LAB SECTION -->
-    <section id="lab" class="section">
-        <div class="lab-paper">
-            <img src="flower.png" class="lab-flower" alt="">
-            <h2 class="academic-title">The Lab</h2>
-            <div class="lab-content">
-                <p>Experimental notes and research logs in progress...</p>
-            </div>
-            <div class="button-container">
-                <div class="ink-splash"></div>
-                <button class="ink-button" onclick="showSection('wrk')">To the Gateway</button>
-            </div>
-            <button class="back-link" onclick="showSection('hero')">← Return to Silence</button>
-        </div>
-    </section>
-
-    <!-- WORK SECTION -->
-    <section id="wrk" class="section">
-        <div class="gateway-box">
-            <h2 class="gateway-title">The Gateway</h2>
-            <p style="color: #ffd700; font-family: 'EB Garamond'; font-size: 1.2rem;">Architectural Hardening & Digital Frontiers</p>
-            <div class="button-container">
-                <div class="ink-splash"></div>
-                <button class="ink-button" onclick="showSection('projects')">View Projects</button>
-            </div>
-            <button class="back-link" onclick="showSection('lab')" style="color: #ffd700;">← Back to Lab</button>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="section">
-        <div class="forest-bg-overlay"></div>
-        <h2 class="forest-title">Field Logs</h2>
-        <div id="projectGrid" class="grid-container"></div>
-        <button class="back-link" onclick="showSection('wrk')" style="color: #90ee90; z-index: 10; position: relative;">← Back to Gateway</button>
-    </section>
-
-    <!-- PROJECT SUBPAGE OVERLAY -->
-    <div id="subpage" class="overlay">
-        <div class="rocky-texture"></div>
-        <span class="close-btn" onclick="closeProject()">× Close</span>
-        <div id="projectDetail"></div>
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+</section>
