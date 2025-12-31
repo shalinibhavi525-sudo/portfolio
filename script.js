@@ -34,7 +34,7 @@ const projectsData = {
         <h3>Technical Highlights</h3><ul><li>Real-time Transcription: Uses a local voice_listener.py to capture and process audio streams instantly.</li><li>Sentiment Trends: Visualizes emotional patterns over time using a dedicated mood_tracker.py.</li><li>Empathetic UX: Responds with encouraging feedback like "Your tone feels calmer today" to promote mindful communication.</li></ul>
         <p><strong>Tech Stack:</strong> Python, Streamlit, speech_recognition, Sentiment Analysis Modules.</p>`
     },
-    "Border Reporter": {
+    "Border": {
         tagline: "Real-Time Incident Logging for Security Personnel.",
         content: `<h3>The Solution</h3><p>A high-speed incident logging system designed for border security personnel to track breaches and suspicious activities under pressure. The goal was to ensure reporting could happen in under 30 seconds.</p>
         <h3>Technical Highlights</h3><ul><li>GPS Auto-Capture: Automatic location tagging for all reports to ensure accurate field intelligence.</li><li>Intermittent Sync: Features offline capability to ensure logs are saved even when connection to the command center is lost.</li><li>Severity Management: Categorizes events from Low to Critical with photo evidence attachments.</li><li>Data Export: Generates CSV reports and visualizes incidents on a real-time command center dashboard using Leaflet.js.</li></ul>
@@ -43,11 +43,11 @@ const projectsData = {
     "Safe_steps": {
         tagline: "Disaster Route Finder & Emergency Shelter Locator.",
         content: `<h3>The Problem</h3><p>During floods or storms, information overload is dangerous. SafeSteps proves that clean design and focused APIs can turn chaotic data into calm, useful guidance.</p>
-        <h3>The Solution</h3><p>A browser-based app that combines real-time weather alerts with a map-based shelter locator, requiring no login or setup for users in crisis.</p>
+        <h3>The Solution</h3><p>A browser-based app that combines real-time weather alerts with a map-based shelter locator, requiring no login or setup for users in crisis. Proves API resilience in offline scenarios.</p>
         <h3>Technical Highlights</h3><ul><li>API Resilience: Includes an offline fallback message if the weather API is unreachable.</li><li>Dynamic Map Layers: Uses Leaflet.js to overlay real-time disaster zones with static shelter markers.</li><li>One-Click Alerting: Fetches local weather messages instantly based on the user's city input.</li></ul>
         <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Leaflet.js, OpenWeatherMap API.</p>`
     },
-    "Project Parichay": {
+    "Parichay": {
         tagline: "Offline ID Generator for Informal Workers.",
         content: `<h3>The Impact</h3><p>Millions of informal workers lack formal identification. Project Parichay allows them to generate and print professional ID cards containing their photo, occupation, and a vital emergency QR code.</p>
         <h3>The Logic</h3><p>Works entirely offline through PWA caching and localStorage, ensuring utility in areas with zero internet coverage.</p>
@@ -59,15 +59,30 @@ const projectsData = {
 window.openProject = function(name) {
     const p = projectsData[name];
     if(!p) return;
-    document.getElementById('subpageContent').innerHTML = `<h1>${name}</h1><p style="font-style:italic; font-size: 1.5rem; color: #d4af37; margin-bottom: 30px;">${p.tagline}</p>${p.content}`;
+    document.getElementById('subpageContent').innerHTML = `<h1>${name}</h1><p style="font-style:italic; font-size: 1.4rem; color: #d4af37; margin-bottom: 30px;">${p.tagline}</p>${p.content}`;
     document.getElementById('project-subpage').style.display = 'block';
+    document.body.style.overflow = 'hidden';
 };
 
-window.closeSubpage = function() { document.getElementById('project-subpage').style.display = 'none'; };
+window.closeSubpage = function() { 
+    document.getElementById('project-subpage').style.display = 'none'; 
+    document.body.style.overflow = 'hidden'; 
+};
 
 document.querySelectorAll('.nav-link').forEach(link => {
     link.onclick = (e) => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        const targetAttr = link.getAttribute('href');
+        const target = document.querySelector(targetAttr);
+        if(target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 });
+
+const exp = document.querySelector('.explore-wrapper');
+const nm = document.getElementById('heroName');
+if(exp) {
+    exp.onmouseenter = () => nm.classList.add('glow');
+    exp.onmouseleave = () => nm.classList.remove('glow');
+}
