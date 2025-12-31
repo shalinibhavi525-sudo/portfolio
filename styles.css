@@ -16,19 +16,21 @@
 
 html {
     scroll-behavior: smooth;
+    overflow: hidden;  /* LOCK GLOBAL SCROLL! */
 }
 
 body {
     font-family: 'Cormorant Garamond', serif;
-    overflow-x: hidden;
+    overflow: hidden;  /* LOCK GLOBAL SCROLL! */
     background: #000;
+    height: 100vh;
 }
 
 section {
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;  /* EXACT HEIGHT! */
     position: relative;
-    overflow-y: auto;
+    overflow-y: auto;  /* SCROLL ONLY WITHIN SECTION! */
     overflow-x: hidden;
 }
 
@@ -56,6 +58,7 @@ section::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;  /* NO SCROLL ON HERO! */
 }
 
 .stardust-bg {
@@ -66,7 +69,7 @@ section::-webkit-scrollbar-thumb {
     pointer-events: none;
 }
 
-/* Assets */
+/* Assets - DARKER COFFEE STAINS! */
 .asset-raven {
     position: absolute;
     top: 20px;
@@ -81,7 +84,8 @@ section::-webkit-scrollbar-thumb {
     bottom: 30%;
     right: 35%;
     width: 250px;
-    opacity: 0.6;
+    opacity: 0.85;  /* DARKER! */
+    filter: brightness(0.4) contrast(1.3);  /* DARKER BROWN! */
 }
 
 .asset-coffee-middle-left {
@@ -90,7 +94,8 @@ section::-webkit-scrollbar-thumb {
     left: 10%;
     transform: translateY(-50%);
     width: 200px;
-    opacity: 0.5;
+    opacity: 0.75;  /* DARKER! */
+    filter: brightness(0.4) contrast(1.3);  /* DARKER BROWN! */
 }
 
 .asset-rose-bottom-left {
@@ -194,7 +199,7 @@ section::-webkit-scrollbar-thumb {
 /* Back Buttons */
 .back-btn,
 .back-btn-subpage {
-    position: absolute;
+    position: fixed;  /* FIXED SO ALWAYS VISIBLE! */
     top: 30px;
     left: 30px;
     z-index: 100;
@@ -217,7 +222,6 @@ section::-webkit-scrollbar-thumb {
 }
 
 .back-btn-subpage {
-    position: fixed;
     background: rgba(61, 74, 44, 0.9);
     cursor: pointer;
 }
@@ -232,6 +236,7 @@ section::-webkit-scrollbar-thumb {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;  /* NO SCROLL! */
 }
 
 .gateway-title {
@@ -284,7 +289,7 @@ section::-webkit-scrollbar-thumb {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 60px 50px;
+    gap: 80px 50px;
     max-width: 1000px;
     z-index: 10;
 }
@@ -293,16 +298,24 @@ section::-webkit-scrollbar-thumb {
     position: relative;
 }
 
+/* PROJECT NAME ON CARD - VINTAGE STYLE! */
 .project-card-title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 900;
     color: var(--dark-green);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-align: center;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+    text-shadow: 
+        1px 1px 3px rgba(255,255,255,0.8),
+        -1px -1px 3px rgba(255,255,255,0.8);
+    width: 90%;
 }
 
 .project-card {
@@ -397,12 +410,23 @@ section::-webkit-scrollbar-thumb {
     opacity: 0.8;
 }
 
+/* ADD ROSE 2! */
+.rose-decoration {
+    position: absolute;
+    top: 10%;
+    right: -20px;
+    width: 130px;
+    transform: rotate(20deg);
+    opacity: 0.7;
+}
+
 .coffee-stain-page {
     position: absolute;
     top: 15%;
     right: 10%;
     width: 120px;
-    opacity: 0.4;
+    opacity: 0.7;  /* DARKER! */
+    filter: brightness(0.3) contrast(1.4);  /* DARKER BROWN! */
 }
 
 .paper-content {
@@ -577,7 +601,11 @@ section::-webkit-scrollbar-thumb {
     
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 60px;
+    }
+    
+    .project-card-title {
+        font-size: 1.3rem;
     }
     
     .subpage-content {
