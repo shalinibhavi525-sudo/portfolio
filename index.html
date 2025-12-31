@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shambhavi Singh | Portfolio</title>
+    <title>Shambhavi Singh | MIT Portfolio</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@700;900&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Pinyon+Script&family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@700;900&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
     <!-- SECTION 1: HERO -->
     <section id="hero" class="hero-section">
         <div class="stardust-bg"></div>
-        <img src="raven.png" class="asset-raven" alt="">
+        <img src="raven.png" class="asset-raven" alt="Raven">
         <img src="coffee%20stain%201.png" class="asset-coffee-hero-right" alt="">
         <img src="coffee%20stain%202.png" class="asset-coffee-hero-left" alt="">
         <img src="rose%201.png" class="asset-rose-hero" alt="">
@@ -24,7 +24,7 @@
             <p class="hero-tags">builder &bull; researcher &bull; forest dweller</p>
         </div>
         
-        <div class="explore-wrapper">
+        <div class="explore-wrapper forward-ink-trigger">
             <img src="ink.png" class="ink-splash" alt="">
             <a href="#work-gateway" class="explore-btn nav-link">EXPLORE</a>
         </div>
@@ -38,7 +38,7 @@
             <p class="gateway-text">
                 Engineering solutions for the modern frontier. From real-time fact-checking protocols to low-bandwidth development environments, my work focuses on high-impact utility in adversarial conditions.
             </p>
-            <div class="view-wrapper">
+            <div class="view-wrapper forward-ink-trigger">
                 <img src="ink.png" class="ink-splash" alt="">
                 <a href="#projects" class="view-btn nav-link">VIEW COLLECTION</a>
             </div>
@@ -48,10 +48,14 @@
     <!-- SECTION 3: PROJECTS -->
     <section id="projects" class="projects-section">
         <a href="#work-gateway" class="back-btn nav-link">← BACK</a>
+        
         <div class="projects-grid-container">
-            <div class="projects-grid" id="projectsGrid"></div>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- JavaScript injects cards + ferns here -->
+            </div>
         </div>
-        <div class="view-further-wrapper">
+
+        <div class="view-further-wrapper forward-ink-trigger">
             <img src="ink.png" class="ink-splash" alt="">
             <a href="#additional-work" class="view-further-btn nav-link">VIEW FURTHER</a>
         </div>
@@ -65,9 +69,8 @@
         <div class="burnt-paper-container">
             <img src="burnt%20paper.png" class="burnt-paper-bg" alt="">
             
-            <!-- Decorations -->
-            <img src="flower.png" class="flower-decoration" alt=""> <!-- Baby's breath bottom left -->
-            <img src="rose%202.png" class="rose-archive-decoration" alt=""> <!-- Rose 2 on top right corner of paper -->
+            <img src="flower.png" class="flower-decoration" alt=""> <!-- Baby's Breath bottom left -->
+            <img src="rose%202.png" class="rose-archive-decoration" alt=""> <!-- Rose 2 top right corner -->
             <img src="coffee%20stain%203.png" class="coffee-stain-page" alt="">
             
             <div class="paper-content">
@@ -97,7 +100,7 @@
         <img src="leaf.png" class="leaf-decoration leaf-1" alt="">
         <img src="leaf.png" class="leaf-decoration leaf-2" alt="">
         <div class="subpage-content" id="subpageContent"></div>
-        <div class="view-further-wrapper sub-footer-btn">
+        <div class="view-further-wrapper forward-ink-trigger sub-footer-btn">
             <img src="ink.png" class="ink-splash" alt="">
             <a href="#additional-work" class="view-further-btn nav-link" onclick="closeSubpage()">VIEW FURTHER</a>
         </div>
