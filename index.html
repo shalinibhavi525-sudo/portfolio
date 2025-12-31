@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shambhavi Singh | MIT Portfolio</title>
+    <title>Shambhavi Singh | Portfolio</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Pinyon+Script&family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@700;900&family=UnifrakturMaguntia&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Pinyon+Script&family=Courier+Prime:wght@400;700&family=Playfair+Display:ital,wght@1,700;1,900&family=UnifrakturMaguntia&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
-    <!-- SECTION 1: HERO -->
+    <!-- SECTION 1: HERO/HOME -->
     <section id="hero" class="hero-section">
         <div class="stardust-bg"></div>
         <img src="raven.png" class="asset-raven" alt="">
@@ -33,26 +33,23 @@
     <!-- SECTION 2: WORK GATEWAY -->
     <section id="work-gateway" class="work-gateway-section">
         <a href="#hero" class="back-btn nav-link">← BACK</a>
-        <div class="gateway-container">
-            <h2 class="gateway-title">Engineering Solutions</h2>
-            <div class="gateway-card-block">
-                <p class="gateway-text">
-                    Engineering solutions for the modern frontier. From real-time fact-checking protocols to low-bandwidth development environments, my work focuses on high-impact utility in adversarial conditions.
-                </p>
-            </div>
-            <div class="view-wrapper forward-ink-trigger">
-                <img src="ink.png" class="ink-splash" alt="">
-                <a href="#projects" class="view-btn nav-link">VIEW COLLECTION</a>
-            </div>
+        <h2 class="gateway-title">THE WORK</h2>
+        <div class="gateway-card-block">
+            <p class="gateway-text">
+                Engineering solutions for the modern frontier. From real-time fact-checking protocols to low-bandwidth development environments, my work focuses on high-impact utility in adversarial conditions.
+            </p>
+        </div>
+        <div class="view-wrapper forward-ink-trigger">
+            <img src="ink.png" class="ink-splash" alt="">
+            <a href="#projects" class="view-btn nav-link">VIEW COLLECTION</a>
         </div>
     </section>
     
-    <!-- SECTION 3: PROJECTS (HARDCODED FOR 100% STABILITY) -->
+    <!-- SECTION 3: PROJECTS -->
     <section id="projects" class="projects-section">
         <a href="#work-gateway" class="back-btn nav-link">← BACK</a>
-        
         <div class="projects-grid">
-            <!-- 4x2 Grid -->
+            <!-- Project cards will be hardcoded in CSS for placement and JS for clicks -->
             <div class="project-card-wrapper" onclick="openProject('VERITAS')">
                 <div class="project-card">
                     <span class="newspaper-title">Veritas</span>
@@ -83,9 +80,9 @@
                     <img src="fern%201.png" class="card-fern fern-tr" alt="">
                 </div>
             </div>
-            <div class="project-card-wrapper" onclick="openProject('Border Incident Reporter')">
+            <div class="project-card-wrapper" onclick="openProject('Border')">
                 <div class="project-card">
-                    <span class="newspaper-title">Incident Reporter</span>
+                    <span class="newspaper-title">Border Reporter</span>
                     <img src="fern%202.png" class="card-fern fern-bl" alt="">
                 </div>
             </div>
@@ -95,41 +92,39 @@
                     <img src="fern%201.png" class="card-fern fern-tr" alt="">
                 </div>
             </div>
-            <div class="project-card-wrapper" onclick="openProject('Project Parichay')">
+            <div class="project-card-wrapper" onclick="openProject('Parichay')">
                 <div class="project-card">
                     <span class="newspaper-title">Project Parichay</span>
                     <img src="fern%202.png" class="card-fern fern-bl" alt="">
                 </div>
             </div>
         </div>
-
         <div class="view-further-wrapper forward-ink-trigger">
             <img src="ink.png" class="ink-splash" alt="">
             <a href="#additional-work" class="view-further-btn nav-link">VIEW FURTHER</a>
         </div>
     </section>
     
-    <!-- SECTION 4: ARCHIVE -->
+    <!-- SECTION 4: ADDITIONAL WORK -->
     <section id="additional-work" class="additional-work-section">
         <a href="#projects" class="back-btn nav-link">← BACK</a>
-        <h2 class="additional-title">EXTENDED ARCHIVE</h2>
+        <h2 class="archive-title">EXTENDED ARCHIVE</h2>
         <div class="burnt-paper-container">
             <img src="burnt%20paper.png" class="burnt-paper-bg" alt="">
-            <img src="flower.png" class="flower-decoration" alt=""> 
-            <img src="rose%202.png" class="rose-archive-decoration" alt=""> 
+            <img src="flower.png" class="flower-decoration" alt=""> <!-- Baby's breath -->
+            <img src="rose%202.png" class="rose-archive-decoration" alt=""> <!-- Rose on paper -->
             <img src="coffee%20stain%203.png" class="coffee-stain-page" alt="">
-            
             <div class="paper-content">
-                <h3 class="paper-header">Open Source & Research</h3>
-                <p><strong>GitHub:</strong> <a href="https://github.com/shalinibhavi525-sudo" target="_blank">shalinibhavi525-sudo</a></p>
-                <p><strong>Dev.to:</strong> <a href="https://dev.to/shalinibhavi525sudo" target="_blank">@shalinibhavi525sudo</a></p>
-                <p><strong>X:</strong> <a href="https://x.com/Shambhavibuilds" target="_blank">@Shambhavibuilds</a></p>
-                <p><strong>Research Paper:</strong> <a href="https://doi.org/10.5281/zenodo.17879430" target="_blank">DOI: 10.5281/zenodo.17879430</a></p>
-                
-                <h3 class="paper-header">Visualisations</h3>
-                <p>1. Mandelbrot fractals: <a href="https://shalinibhavi525-sudo.github.io/mandelbrot/" target="_blank">Explore →</a></p>
-                <p>2. Neural Network: <a href="https://shalinibhavi525-sudo.github.io/neural-network/" target="_blank">Explore →</a></p>
-                <p>3. Edge coding: <a href="https://shalinibhavi525-sudo.github.io/edge-coding/" target="_blank">Explore →</a></p>
+                <p><strong>Github:</strong> <a href="https://github.com/shalinibhavi525-sudo" target="_blank">https://github.com/shalinibhavi525-sudo</a></p>
+                <p><strong>Dev.to:</strong> <a href="https://dev.to/shalinibhavi525sudo" target="_blank">https://dev.to/shalinibhavi525sudo</a></p>
+                <p><strong>X:</strong> <a href="https://x.com/Shambhavibuilds" target="_blank">https://x.com/Shambhavibuilds</a></p>
+                <p><strong>Research paper:</strong> <a href="https://doi.org/10.5281/zenodo.17879430" target="_blank">https://doi.org/10.5281/zenodo.17879430</a></p>
+                <p><strong>Open source contribution:</strong> 7 PRs merged</p>
+                <p><strong>Hackathon project [won Meme Heist award]:</strong> <a href="https://shalinibhavi525-sudo.github.io/OnlyFlans/" target="_blank">https://shalinibhavi525-sudo.github.io/OnlyFlans/</a></p>
+                <p><br><strong>Interactive Visualisations:</strong></p>
+                <p>1. Mandelbrot fractals: <a href="https://shalinibhavi525-sudo.github.io/mandelbrot/" target="_blank">https://shalinibhavi525-sudo.github.io/mandelbrot/</a></p>
+                <p>2. Neural Network: <a href="https://shalinibhavi525-sudo.github.io/neural-network/" target="_blank">https://shalinibhavi525-sudo.github.io/neural-network/</a></p>
+                <p>3. Edge coding: <a href="https://shalinibhavi525-sudo.github.io/edge-coding/" target="_blank">https://shalinibhavi525-sudo.github.io/edge-coding/</a></p>
             </div>
         </div>
     </section>
@@ -141,10 +136,6 @@
         <img src="leaf.png" class="leaf-decoration leaf-1" alt="">
         <img src="leaf.png" class="leaf-decoration leaf-2" alt="">
         <div class="subpage-content" id="subpageContent"></div>
-        <div class="view-further-wrapper forward-ink-trigger sub-footer-btn">
-            <img src="ink.png" class="ink-splash" alt="">
-            <a href="#additional-work" class="view-further-btn nav-link" onclick="closeSubpage()">VIEW FURTHER</a>
-        </div>
     </div>
 
     <script src="script.js"></script>
