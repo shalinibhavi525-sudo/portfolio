@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shambhavi Singh | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Pinyon+Script&family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@700;900&family=Special+Elite&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@700;900&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,12 +14,12 @@
     <section id="hero" class="hero-section">
         <div class="stardust-bg"></div>
         <img src="raven.png" class="asset-raven" alt="">
-        <img src="coffee%20stain%201.png" class="asset-coffee-bottom-right" alt="">
-        <img src="coffee%20stain%202.png" class="asset-coffee-middle-left" alt="">
-        <img src="rose%201.png" class="asset-rose-bottom-left" alt="">
+        <img src="coffee%20stain%201.png" class="asset-coffee-hero-right" alt="">
+        <img src="coffee%20stain%202.png" class="asset-coffee-hero-left" alt="">
+        <img src="rose%201.png" class="asset-rose-hero" alt="">
         
         <div class="hero-content">
-            <p class="hero-tagline">FOREST TO FUNCTION</p>
+            <p class="hero-tagline">forest to function</p>
             <h1 class="hero-name" id="heroName">shambhavi singh</h1>
             <p class="hero-tags">builder &bull; researcher &bull; forest dweller</p>
         </div>
@@ -47,8 +48,10 @@
     <!-- SECTION 3: PROJECTS -->
     <section id="projects" class="projects-section">
         <a href="#work-gateway" class="back-btn nav-link">← BACK</a>
-        <div class="projects-grid" id="projectsGrid"></div>
-        <div class="view-further-wrapper main-footer-btn">
+        <div class="projects-grid-container">
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+        <div class="view-further-wrapper">
             <img src="ink.png" class="ink-splash" alt="">
             <a href="#additional-work" class="view-further-btn nav-link">VIEW FURTHER</a>
         </div>
@@ -62,17 +65,18 @@
         <div class="burnt-paper-container">
             <img src="burnt%20paper.png" class="burnt-paper-bg" alt="">
             
-            <!-- Missing Decorations Added Back -->
-            <img src="flower.png" class="flower-decoration" alt="">
+            <!-- Decorations -->
+            <img src="flower.png" class="flower-decoration" alt=""> <!-- Baby's breath bottom left -->
+            <img src="rose%202.png" class="rose-archive-decoration" alt=""> <!-- Rose 2 on top right corner of paper -->
             <img src="coffee%20stain%203.png" class="coffee-stain-page" alt="">
             
             <div class="paper-content">
                 <h3 class="paper-header">Open Source & Research</h3>
-                <p><strong>Github:</strong> <a href="https://github.com/shalinibhavi525-sudo" target="_blank">shalinibhavi525-sudo</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/shalinibhavi525-sudo" target="_blank">shalinibhavi525-sudo</a></p>
                 <p><strong>Dev.to:</strong> <a href="https://dev.to/shalinibhavi525sudo" target="_blank">@shalinibhavi525sudo</a></p>
                 <p><strong>X:</strong> <a href="https://x.com/Shambhavibuilds" target="_blank">@Shambhavibuilds</a></p>
-                <p><strong>Research paper:</strong> <a href="https://doi.org/10.5281/zenodo.17879430" target="_blank">DOI: 10.5281/zenodo.17879430</a></p>
-                <p><strong>Open source contribution:</strong> 7 PRs merged</p>
+                <p><strong>Research Paper:</strong> <a href="https://doi.org/10.5281/zenodo.17879430" target="_blank">DOI: 10.5281/zenodo.17879430</a></p>
+                <p><strong>Open Source Contributions:</strong> 7 PRs merged</p>
 
                 <h3 class="paper-header">Hackathon Victory</h3>
                 <p><strong>OnlyFlans (Meme Heist Award Winner)</strong><br>
@@ -96,3 +100,9 @@
         <div class="view-further-wrapper sub-footer-btn">
             <img src="ink.png" class="ink-splash" alt="">
             <a href="#additional-work" class="view-further-btn nav-link" onclick="closeSubpage()">VIEW FURTHER</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
