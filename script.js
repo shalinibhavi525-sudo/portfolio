@@ -1,3 +1,4 @@
+// MUST BE AT TOP LEVEL TO BE SEEN BY HTML ONCLICK
 const projectsData = {
     "VERITAS": {
         tagline: "Decentralized, Offline-First Misinformation Detection for the Edge.",
@@ -33,20 +34,35 @@ const projectsData = {
     }
 };
 
-function openProject(name) {
+window.openProject = function(name) {
     const p = projectsData[name];
+    if(!p) return;
     document.getElementById('subpageContent').innerHTML = `<h1>${name}</h1><p style="font-style:italic; font-size: 1.4rem; color: #d4af37; margin-bottom: 30px;">${p.tagline}</p>${p.content}`;
     document.getElementById('project-subpage').style.display = 'block';
     document.body.style.overflow = 'hidden';
-}
+};
 
-function closeSubpage() { 
+window.closeSubpage = function() { 
     document.getElementById('project-subpage').style.display = 'none'; 
     document.body.style.overflow = 'hidden'; 
-}
+};
 
+// Smooth Scrolling logic
 document.querySelectorAll('.nav-link').forEach(link => {
     link.onclick = (e) => {
-        const target = document.querySelector(link.getAttribute('href'));
+        const targetAttr = link.getAttribute('href');
+        const target = document.querySelector(targetAttr);
         if(target) {
             e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+});
+
+// Glow effect on explore hover
+const exp = document.querySelector('.explore-wrapper');
+const nm = document.getElementById('heroName');
+if(exp) {
+    exp.onmouseenter = () => nm.classList.add('glow');
+    exp.onmouseleave = () => nm.classList.remove('glow');
+}
