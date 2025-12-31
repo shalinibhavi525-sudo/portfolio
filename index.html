@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shambhavi Singh | Portfolio</title>
+    <title>Shambhavi Singh | MIT Portfolio</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Pinyon+Script&family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@700;900&family=UnifrakturMaguntia&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -30,18 +30,16 @@
         </div>
     </section>
     
-    <!-- SECTION 2: WORK GATEWAY (FIXED BLANK ISSUE) -->
+    <!-- SECTION 2: WORK GATEWAY -->
     <section id="work-gateway" class="work-gateway-section">
         <a href="#hero" class="back-btn nav-link">← BACK</a>
-        
         <div class="gateway-container">
-            <h2 class="gateway-title">The Modern Frontier</h2>
+            <h2 class="gateway-title">Engineering Solutions</h2>
             <div class="gateway-card-block">
                 <p class="gateway-text">
                     Engineering solutions for the modern frontier. From real-time fact-checking protocols to low-bandwidth development environments, my work focuses on high-impact utility in adversarial conditions.
                 </p>
             </div>
-            
             <div class="view-wrapper forward-ink-trigger">
                 <img src="ink.png" class="ink-splash" alt="">
                 <a href="#projects" class="view-btn nav-link">VIEW COLLECTION</a>
@@ -49,67 +47,58 @@
         </div>
     </section>
     
-    <!-- SECTION 3: PROJECTS -->
+    <!-- SECTION 3: PROJECTS (HARDCODED FOR 100% STABILITY) -->
     <section id="projects" class="projects-section">
         <a href="#work-gateway" class="back-btn nav-link">← BACK</a>
         
-        <div class="projects-grid-container">
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card-wrapper" onclick="openProject('VERITAS')">
-                    <div class="project-card">
-                        <div class="project-card-title">Veritas</div>
-                        <img src="fern%201.png" class="card-fern fern-pos-tr" alt="">
-                    </div>
+        <div class="projects-grid">
+            <!-- 4x2 Grid -->
+            <div class="project-card-wrapper" onclick="openProject('VERITAS')">
+                <div class="project-card">
+                    <span class="newspaper-title">Veritas</span>
+                    <img src="fern%201.png" class="card-fern fern-tr" alt="">
                 </div>
-                <!-- Project 2 -->
-                <div class="project-card-wrapper" onclick="openProject('EdgeDev')">
-                    <div class="project-card">
-                        <div class="project-card-title">EdgeDev</div>
-                        <img src="fern%202.png" class="card-fern fern-pos-bl" alt="">
-                    </div>
+            </div>
+            <div class="project-card-wrapper" onclick="openProject('EdgeDev')">
+                <div class="project-card">
+                    <span class="newspaper-title">EdgeDev</span>
+                    <img src="fern%202.png" class="card-fern fern-bl" alt="">
                 </div>
-                <!-- Project 3 -->
-                <div class="project-card-wrapper" onclick="openProject('Bhai-Lang')">
-                    <div class="project-card">
-                        <div class="project-card-title">Bhai-Lang</div>
-                        <img src="fern%201.png" class="card-fern fern-pos-tr" alt="">
-                    </div>
+            </div>
+            <div class="project-card-wrapper" onclick="openProject('Bhai-Lang')">
+                <div class="project-card">
+                    <span class="newspaper-title">Bhai-Lang</span>
+                    <img src="fern%201.png" class="card-fern fern-tr" alt="">
                 </div>
-                <!-- Project 4 -->
-                <div class="project-card-wrapper" onclick="openProject('Calyx')">
-                    <div class="project-card">
-                        <div class="project-card-title">Calyx</div>
-                        <img src="fern%202.png" class="card-fern fern-pos-bl" alt="">
-                    </div>
+            </div>
+            <div class="project-card-wrapper" onclick="openProject('Calyx')">
+                <div class="project-card">
+                    <span class="newspaper-title">Calyx</span>
+                    <img src="fern%202.png" class="card-fern fern-bl" alt="">
                 </div>
-                <!-- Project 5 -->
-                <div class="project-card-wrapper" onclick="openProject('Echo_Aid')">
-                    <div class="project-card">
-                        <div class="project-card-title">Echo_Aid</div>
-                        <img src="fern%201.png" class="card-fern fern-pos-tr" alt="">
-                    </div>
+            </div>
+            <div class="project-card-wrapper" onclick="openProject('Echo_Aid')">
+                <div class="project-card">
+                    <span class="newspaper-title">Echo_Aid</span>
+                    <img src="fern%201.png" class="card-fern fern-tr" alt="">
                 </div>
-                <!-- Project 6 -->
-                <div class="project-card-wrapper" onclick="openProject('Border Incident Reporter')">
-                    <div class="project-card">
-                        <div class="project-card-title">Incident Reporter</div>
-                        <img src="fern%202.png" class="card-fern fern-pos-bl" alt="">
-                    </div>
+            </div>
+            <div class="project-card-wrapper" onclick="openProject('Border Incident Reporter')">
+                <div class="project-card">
+                    <span class="newspaper-title">Incident Reporter</span>
+                    <img src="fern%202.png" class="card-fern fern-bl" alt="">
                 </div>
-                <!-- Project 7 -->
-                <div class="project-card-wrapper" onclick="openProject('Safe_steps')">
-                    <div class="project-card">
-                        <div class="project-card-title">Safe_steps</div>
-                        <img src="fern%201.png" class="card-fern fern-pos-tr" alt="">
-                    </div>
+            </div>
+            <div class="project-card-wrapper" onclick="openProject('Safe_steps')">
+                <div class="project-card">
+                    <span class="newspaper-title">Safe_steps</span>
+                    <img src="fern%201.png" class="card-fern fern-tr" alt="">
                 </div>
-                <!-- Project 8 -->
-                <div class="project-card-wrapper" onclick="openProject('Project Parichay')">
-                    <div class="project-card">
-                        <div class="project-card-title">Project Parichay</div>
-                        <img src="fern%202.png" class="card-fern fern-pos-bl" alt="">
-                    </div>
+            </div>
+            <div class="project-card-wrapper" onclick="openProject('Project Parichay')">
+                <div class="project-card">
+                    <span class="newspaper-title">Project Parichay</span>
+                    <img src="fern%202.png" class="card-fern fern-bl" alt="">
                 </div>
             </div>
         </div>
@@ -120,11 +109,10 @@
         </div>
     </section>
     
-    <!-- SECTION 4: ADDITIONAL WORK -->
+    <!-- SECTION 4: ARCHIVE -->
     <section id="additional-work" class="additional-work-section">
         <a href="#projects" class="back-btn nav-link">← BACK</a>
         <h2 class="additional-title">EXTENDED ARCHIVE</h2>
-        
         <div class="burnt-paper-container">
             <img src="burnt%20paper.png" class="burnt-paper-bg" alt="">
             <img src="flower.png" class="flower-decoration" alt=""> 
@@ -137,13 +125,8 @@
                 <p><strong>Dev.to:</strong> <a href="https://dev.to/shalinibhavi525sudo" target="_blank">@shalinibhavi525sudo</a></p>
                 <p><strong>X:</strong> <a href="https://x.com/Shambhavibuilds" target="_blank">@Shambhavibuilds</a></p>
                 <p><strong>Research Paper:</strong> <a href="https://doi.org/10.5281/zenodo.17879430" target="_blank">DOI: 10.5281/zenodo.17879430</a></p>
-                <p><strong>Open Source Contributions:</strong> 7 PRs merged</p>
-
-                <h3 class="paper-header">Hackathon Victory</h3>
-                <p><strong>OnlyFlans (Meme Heist Award Winner)</strong><br>
-                <a href="https://shalinibhavi525-sudo.github.io/OnlyFlans/" target="_blank">View Project →</a></p>
-
-                <h3 class="paper-header">Interactive Visualisations</h3>
+                
+                <h3 class="paper-header">Visualisations</h3>
                 <p>1. Mandelbrot fractals: <a href="https://shalinibhavi525-sudo.github.io/mandelbrot/" target="_blank">Explore →</a></p>
                 <p>2. Neural Network: <a href="https://shalinibhavi525-sudo.github.io/neural-network/" target="_blank">Explore →</a></p>
                 <p>3. Edge coding: <a href="https://shalinibhavi525-sudo.github.io/edge-coding/" target="_blank">Explore →</a></p>
