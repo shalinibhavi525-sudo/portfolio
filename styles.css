@@ -10,220 +10,88 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body {
-    height: 100%;
-    overflow: hidden;
-    background: #000;
-}
+html, body { height: 100%; overflow: hidden; background: #000; }
 
 section {
-    width: 100vw;
-    height: 100vh;
-    overflow-y: auto;
-    position: relative;
-    scroll-behavior: smooth;
-    display: block; /* Ensure visibility */
+    width: 100vw; height: 100vh;
+    overflow-y: auto; position: relative;
+    scroll-behavior: smooth; display: block;
 }
 
 /* 1. HERO */
-.hero-section {
-    background: var(--dark-grey);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-}
-
-.stardust-bg {
-    position: absolute;
-    inset: 0;
-    background: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.3;
-    pointer-events: none;
-}
-
-.asset-raven { position: absolute; top: 20px; right: 20px; width: 220px; filter: brightness(0.05); z-index: 5; }
+.hero-section { background: var(--dark-grey); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.stardust-bg { position: absolute; inset: 0; background: url('https://www.transparenttextures.com/patterns/stardust.png'); opacity: 0.3; pointer-events: none; }
+.asset-raven { position: absolute; top: 20px; right: 20px; width: 220px; filter: brightness(0.05); }
 .asset-coffee-hero-right { position: absolute; bottom: 20%; right: 20%; width: 280px; opacity: 0.7; filter: brightness(0.5); }
 .asset-coffee-hero-left { position: absolute; top: 35%; left: 5%; width: 240px; opacity: 0.7; filter: brightness(0.5); }
-.asset-rose-hero { position: absolute; bottom: 40px; left: 40px; width: 220px; transform: rotate(-25deg); z-index: 6; }
+.asset-rose-hero { position: absolute; bottom: 40px; left: 40px; width: 220px; transform: rotate(-25deg); }
 
 .hero-content { z-index: 10; text-align: center; }
-
-.hero-tagline { 
-    font-family: 'Cormorant Garamond', serif; 
-    color: var(--silver); 
-    letter-spacing: 12px; 
-    font-size: 1.4rem;
-    margin-bottom: 50px; 
-    text-transform: uppercase;
-}
-
-.hero-name { 
-    font-family: 'Pinyon Script', cursive; 
-    color: var(--gold); 
-    font-size: 8.5rem; 
-    margin-bottom: 40px; 
-    transition: text-shadow 0.4s ease;
-    line-height: 1.1;
-}
-
+.hero-tagline { font-family: 'Cormorant Garamond', serif; color: var(--silver); letter-spacing: 12px; font-size: 1.4rem; margin-bottom: 50px; text-transform: uppercase; }
+.hero-name { font-family: 'Pinyon Script', cursive; color: var(--gold); font-size: 8.5rem; margin-bottom: 40px; line-height: 1.1; }
 .hero-name.glow { text-shadow: 0 0 35px rgba(212,175,55,0.9), 0 0 70px rgba(212,175,55,0.4); }
+.hero-tags { font-family: 'Cormorant Garamond', serif; color: var(--silver); font-size: 1.8rem; font-style: italic; }
 
-.hero-tags { 
-    font-family: 'Cormorant Garamond', serif; 
-    color: var(--silver); 
-    font-size: 1.8rem;
-    font-style: italic;
-}
+/* INK HOVER */
+.forward-ink-trigger .ink-splash { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); width: 380px; opacity: 0; transition: 0.5s ease; filter: brightness(0.1); pointer-events: none; }
+.forward-ink-trigger:hover .ink-splash { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
 
-/* BUTTONS & INK */
-.explore-wrapper, .view-wrapper, .view-further-wrapper {
-    position: relative;
-    margin-top: 60px;
-    z-index: 20;
-}
+.explore-btn, .view-btn, .view-further-btn { display: inline-block; padding: 16px 48px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-family: 'Cormorant Garamond', serif; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 20; }
+.back-btn { position: absolute; top: 30px; left: 30px; padding: 12px 28px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; z-index: 100; background: rgba(0,0,0,0.5); }
 
-.ink-splash {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 380px;
-    opacity: 0;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: brightness(0.1);
-    pointer-events: none;
-}
-
-.forward-ink-trigger:hover .ink-splash {
-    opacity: 0.9; transform: translate(-50%, -50%) scale(1.1);
-}
-
-.explore-btn, .view-btn, .view-further-btn {
-    display: inline-block;
-    padding: 16px 48px;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    text-decoration: none;
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    background: transparent;
-}
-
-.back-btn {
-    position: absolute;
-    top: 30px; left: 30px;
-    padding: 12px 28px;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    text-decoration: none;
-    z-index: 100;
-    background: rgba(0,0,0,0.5);
-}
-
-/* 2. GATEWAY (FIXED BLANK COLOR) */
-.work-gateway-section { 
-    background-color: var(--deep-blue) !important; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center;
-    z-index: 2;
-}
-
+/* 2. GATEWAY */
+.work-gateway-section { background: var(--deep-blue); display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .gateway-container { text-align: center; padding: 40px; }
-.gateway-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 3rem; margin-bottom: 30px; }
+.gateway-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 3.5rem; margin-bottom: 30px; }
+.gateway-card-block { border: 2px solid var(--gold); padding: 50px; max-width: 800px; background: rgba(0,0,0,0.4); margin: 0 auto; }
+.gateway-text { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; line-height: 1.9; }
 
-.gateway-card-block { 
-    border: 2px solid var(--gold); 
-    padding: 50px; 
-    max-width: 800px; 
-    background: rgba(0,0,0,0.4);
-    margin: 0 auto;
-}
-.gateway-text { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; line-height: 1.9; text-align: center; }
-
-/* 3. PROJECTS GRID - TEXT ON TOP */
-.projects-section { 
-    background: url('background.jpg') center/cover no-repeat fixed; 
-    padding: 120px 40px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    z-index: 3;
-}
+/* 3. PROJECTS GRID - ABSOLUTE FIX */
+.projects-section { background: url('background.jpg') center/cover no-repeat fixed; display: flex; flex-direction: column; align-items: center; padding: 100px 40px; }
 
 .projects-grid { 
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
-    gap: 80px 40px; 
-    max-width: 1240px;
+    gap: 100px 40px; 
+    width: 100%; 
+    max-width: 1240px; 
+    margin-top: 50px;
 }
 
-.project-card-wrapper { 
-    position: relative; 
-    cursor: pointer;
-}
+.project-card-wrapper { position: relative; }
 
 .project-card { 
-    background: rgba(220, 220, 220, 0.9) url('card.png') center/cover;
-    height: 380px; 
-    width: 100%;
+    background: rgba(220, 220, 220, 0.9) url('card.png') center/cover; 
+    height: 360px; 
+    width: 100%; 
     filter: brightness(0.7) blur(0.5px); 
     transition: 0.4s; 
     border: 1px solid rgba(255,255,255,0.3);
     position: relative;
-    overflow: visible;
 }
-
 .project-card:hover { filter: brightness(0.9) blur(0px); transform: translateY(-10px); }
 
-/* NEWSPAPER FONT ON TOP OF CARD */
-.project-card-title { 
-    position: absolute; 
-    top: 25px; 
-    width: 100%; 
-    text-align: center; 
-    color: var(--dark-green); 
-    font-family: 'UnifrakturMaguntia', cursive; /* Gothic Newspaper Font */
-    font-size: 1.8rem; 
-    z-index: 35;
-    text-shadow: 0px 1px 1px rgba(255,255,255,0.5);
+/* TEXT ON TOP OF CARD */
+.newspaper-title { 
+    position: absolute; top: 25px; left: 0; width: 100%; text-align: center; 
+    color: var(--dark-green); font-family: 'UnifrakturMaguntia', cursive; 
+    font-size: 2rem; z-index: 50; pointer-events: none;
 }
 
-.card-fern { position: absolute; width: 140px; pointer-events: none; z-index: 40; }
-.fern-pos-tr { top: 10px; right: -50px; transform: rotate(15deg); }
-.fern-pos-bl { bottom: -50px; left: -50px; transform: rotate(-15deg); }
+.card-fern { position: absolute; width: 140px; pointer-events: none; z-index: 60; }
+.fern-tr { top: 0; right: -50px; transform: rotate(15deg); }
+.fern-bl { bottom: -50px; left: -50px; transform: rotate(-15deg); }
 
 /* 4. ARCHIVE */
-.additional-work-section { background: var(--blood-red); display: flex; flex-direction: column; align-items: center; padding: 100px 20px; z-index: 4; }
-.additional-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 3.5rem; margin-bottom: 60px; }
+.additional-work-section { background: var(--blood-red); display: flex; flex-direction: column; align-items: center; padding: 100px 20px; }
 .burnt-paper-container { position: relative; max-width: 850px; width: 100%; }
 .burnt-paper-bg { width: 100%; display: block; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.8)); }
-
-.paper-content { 
-    position: absolute; 
-    top: 15%; left: 15%; right: 15%; bottom: 12%; 
-    color: #1a1a1a; 
-    font-family: 'Cormorant Garamond', serif; 
-    font-weight: bold; 
-    overflow-y: auto; 
-}
-.paper-header { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 30px 0 15px 0; border-bottom: 2px solid #1a1a1a; padding-bottom: 5px; }
-.paper-content p { font-size: 1.25rem; margin-bottom: 15px; line-height: 1.6; }
-.paper-content a { color: #1a1a1a; text-decoration: underline; font-weight: 900; }
-
-.flower-decoration { position: absolute; bottom: -30px; left: -50px; width: 190px; transform: rotate(-10deg); z-index: 25; }
-.rose-archive-decoration { position: absolute; top: 10px; right: -45px; width: 160px; transform: rotate(15deg); z-index: 25; }
+.paper-content { position: absolute; top: 15%; left: 15%; right: 15%; bottom: 12%; color: #1a1a1a; font-family: 'Cormorant Garamond', serif; font-weight: bold; overflow-y: auto; }
+.flower-decoration { position: absolute; bottom: -30px; left: -50px; width: 190px; transform: rotate(-10deg); }
+.rose-archive-decoration { position: absolute; top: 10px; right: -45px; width: 160px; transform: rotate(15deg); }
 .coffee-stain-page { position: absolute; top: 18%; right: 10%; width: 120px; filter: brightness(0.35); opacity: 0.5; }
 
 /* SUBPAGE */
 .project-subpage { position: fixed; inset: 0; background: var(--pantone-green); z-index: 5000; display: none; overflow-y: auto; padding: 120px 40px; }
-.subpage-texture { position: absolute; inset: 0; background: url('https://www.transparenttextures.com/patterns/rocky-wall.png'); opacity: 0.25; pointer-events: none; }
 .subpage-content { position: relative; max-width: 850px; margin: 0 auto; color: white; font-family: 'Courier Prime', monospace; line-height: 2; font-size: 1.1rem; }
-.subpage-content h3 { color: var(--gold); margin: 40px 0 15px 0; text-transform: uppercase; letter-spacing: 3px; }
-.leaf-decoration { position: fixed; width: 80px; opacity: 0.5; }
-.leaf-1 { top: 15%; right: 10%; }
-.leaf-2 { bottom: 15%; left: 10%; transform: rotate(180deg); }
-.back-btn-subpage { position: fixed; top: 30px; left: 30px; padding: 12px 28px; border: 1px solid var(--gold); color: var(--gold); background: rgba(0,0,0,0.6); cursor: pointer; z-index: 6000; font-family: 'Cormorant Garamond', serif; }
+.back-btn-subpage { position: fixed; top: 30px; left: 30px; padding: 12px 28px; border: 1px solid var(--gold); color: var(--gold); background: rgba(0,0,0,0.6); z-index: 6000; cursor: pointer; }
